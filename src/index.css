@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes whatsapp-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 4px 14px rgba(0, 0, 0, 0.25);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0), 0 4px 14px rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 4px 14px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.whatsapp-pulse-btn {
+  animation: whatsapp-glow 2s infinite;
+}
