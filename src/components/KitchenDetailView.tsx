@@ -116,25 +116,25 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
           {activeStep === 1 ? (
             <button
               onClick={() => onNavigate('home')}
-              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-pink-300 font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-[8px] bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-[#5337E1] font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-pink-600 stroke-[2.5]" />
+              <ArrowLeft className="w-4 h-4 text-[#5337E1] stroke-[2.5]" />
               <span>Back to Home</span>
             </button>
           ) : activeStep === 2 ? (
             <button
               onClick={() => setStep(1)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-pink-300 font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-[8px] bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-[#5337E1] font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-pink-600 stroke-[2.5]" />
+              <ArrowLeft className="w-4 h-4 text-[#5337E1] stroke-[2.5]" />
               <span>Back to Service Details</span>
             </button>
           ) : (
             <button
               onClick={() => setStep(2)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-pink-300 font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-[8px] bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-[#5337E1] font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-pink-600 stroke-[2.5]" />
+              <ArrowLeft className="w-4 h-4 text-[#5337E1] stroke-[2.5]" />
               <span>Back to Add Appliances</span>
             </button>
           )}
@@ -144,7 +144,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
             {activePkg && (
               <button
                 onClick={handleOpenModal}
-                className="px-3 py-2 rounded-xl font-bold text-xs uppercase tracking-wider bg-white border border-slate-200 text-slate-700 hover:text-pink-600 hover:border-pink-300 transition-all shadow-sm cursor-pointer"
+                className="px-3 py-2 rounded-[8px] font-bold text-xs uppercase tracking-wider bg-white border border-slate-200 text-slate-700 hover:text-[#5337E1] hover:border-[#5337E1] transition-all shadow-sm cursor-pointer"
               >
                 Change Package
               </button>
@@ -342,7 +342,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                   </div>
                   <button
                     onClick={() => setStep(2)}
-                    className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-pink-600/25 hover:shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto px-8 py-4 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-[#5337E1]/25 hover:shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>Continue to Add Appliances</span>
                     <ArrowRight className="w-4 h-4 stroke-[3]" />
@@ -367,7 +367,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
 
               <button
                 onClick={() => onNavigate('bathroomDetail')}
-                className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-white hover:bg-slate-50 text-pink-600 font-black text-xs uppercase tracking-wider transition-all shadow-md hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-xs uppercase tracking-wider transition-all shadow-md hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shrink-0 cursor-pointer border border-white/20"
               >
                 <span>View Bathroom Cleaning</span>
                 <ArrowRight className="w-4 h-4" />
@@ -409,7 +409,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                   {/* Skip or Proceed Button */}
                   <button
                     onClick={() => setStep(3)}
-                    className="self-start sm:self-auto px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm"
+                    className="self-start sm:self-auto px-5 py-2.5 rounded-[8px] text-xs font-extrabold uppercase tracking-wider bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm"
                   >
                     <span>{selectedAppliances.length > 0 ? 'Skip to Summary' : 'Skip Add-ons'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -492,10 +492,10 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                               e.stopPropagation();
                               handleAddClick(appliance.id);
                             }}
-                            className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-md ${
+                            className={`px-5 py-2.5 rounded-[8px] text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-md ${
                               isSelected
                                 ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/25 ring-2 ring-emerald-400/30'
-                                : 'bg-[#E11D48] hover:bg-rose-700 text-white shadow-rose-600/25 hover:scale-105 active:scale-95'
+                                : 'bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-[#5337E1]/25 hover:scale-105 active:scale-95'
                             }`}
                           >
                             {isSelected ? (
@@ -531,13 +531,13 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                   <div className="flex items-center gap-3 w-full sm:w-auto">
                     <button
                       onClick={() => setStep(1)}
-                      className="w-1/2 sm:w-auto px-5 py-3 rounded-2xl bg-white border border-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider hover:bg-slate-50 transition-all cursor-pointer"
+                      className="w-1/2 sm:w-auto px-5 py-3 rounded-[8px] bg-white border border-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider hover:bg-slate-50 transition-all cursor-pointer"
                     >
                       Back
                     </button>
                     <button
                       onClick={() => setStep(3)}
-                      className="w-1/2 sm:w-auto px-7 py-3.5 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-lg shadow-pink-600/25 transition-all hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                      className="w-1/2 sm:w-auto px-8 py-3.5 rounded-[8px] font-black text-xs sm:text-sm uppercase tracking-wider bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-lg shadow-[#5337E1]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
                     >
                       <span>Continue to Summary</span>
                       <ArrowRight className="w-4 h-4 stroke-[3]" />
@@ -760,7 +760,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                     {/* Primary Button: Complete Booking Form */}
                     <button
                       onClick={() => onNavigate('booking')}
-                      className="flex-1 py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-pink-600/25 hover:shadow-xl transition-all hover:scale-[1.02] active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
+                      className="flex-1 py-4 px-6 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-[#5337E1]/25 hover:shadow-xl transition-all hover:scale-[1.02] active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <CalendarCheck className="w-5 h-5" />
                       <span>Complete Booking (Enter Address & Time)</span>
@@ -772,7 +772,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                       href={generateWhatsAppMessage()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-emerald-600/25 hover:shadow-xl transition-all hover:scale-[1.02] active:scale-98 flex items-center justify-center gap-2 cursor-pointer text-center"
+                      className="py-4 px-6 rounded-[8px] bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-emerald-600/25 hover:shadow-xl transition-all hover:scale-[1.02] active:scale-98 flex items-center justify-center gap-2 cursor-pointer text-center"
                     >
                       <MessageSquare className="w-5 h-5 fill-white text-emerald-600" />
                       <span>Book on WhatsApp</span>

@@ -156,10 +156,10 @@ export const KitchenPackageModal: React.FC<KitchenPackageModalProps> = ({
                           onSelectPackage(pkg.id);
                           onClose();
                         }}
-                        className={`w-full py-2.5 sm:py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                        className={`w-full py-3 sm:py-3.5 px-6 rounded-[8px] font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95 ${
                           isSelected
-                            ? 'bg-pink-600 text-white shadow-lg shadow-pink-600/30'
-                            : 'bg-slate-900 hover:bg-pink-600 text-white shadow-md'
+                            ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/25 ring-2 ring-emerald-400/30'
+                            : 'bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-[#5337E1]/25 hover:scale-[1.02]'
                         }`}
                       >
                         <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

@@ -144,7 +144,7 @@ export const Founder: React.FC<FounderProps> = ({ onScrollToBooking }) => {
                     href="https://wa.me/919854905077?text=Hello%20Quick%20Space%20Shine%2C%20I%20want%20to%20inquire%20about%20cleaning%20services."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[8px] bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-xs shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     <MessageSquare className="w-4 h-4 fill-white shrink-0" />
                     <span>Talk to Founder</span>
@@ -152,7 +152,7 @@ export const Founder: React.FC<FounderProps> = ({ onScrollToBooking }) => {
                   {onScrollToBooking && (
                     <button
                       onClick={onScrollToBooking}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-extrabold text-xs shadow-md shadow-[#5337E1]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
                     >
                       <span>Book Service</span>
                     </button>

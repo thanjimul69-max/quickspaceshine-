@@ -50,9 +50,9 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
       <div className="flex items-center justify-between pt-2">
         <button
           onClick={() => onNavigate('home')}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-pink-300 font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-[#5337E1] font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
         >
-          <ArrowLeft className="w-4 h-4 text-pink-600 stroke-[2.5]" />
+          <ArrowLeft className="w-4 h-4 text-[#5337E1] stroke-[2.5]" />
           <span>Back to Home</span>
         </button>
 
@@ -80,7 +80,7 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
 
             <div className="flex flex-col items-start sm:items-end gap-3">
               <div className="text-left sm:text-right">
-                <div className="text-3xl sm:text-4xl font-black text-pink-600">
+                <div className="text-3xl sm:text-4xl font-black text-[#5337E1]">
                   ₹{bathroomCount > 0 ? currentTotal.toLocaleString('en-IN') : '799'}
                 </div>
                 <span className="text-xs text-slate-500 font-medium">
@@ -94,7 +94,7 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
               {bathroomCount === 0 ? (
                 <button
                   onClick={handleIncrement}
-                  className="px-5 py-3 rounded-xl bg-pink-500 hover:bg-pink-600 text-white font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-md shadow-pink-500/25 cursor-pointer hover:scale-105 active:scale-95"
+                  className="px-6 py-3.5 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-md shadow-[#5337E1]/25 cursor-pointer hover:scale-105 active:scale-95"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Add Bathroom (₹799)</span>
@@ -108,18 +108,18 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleDecrement}
-                      className="w-9 h-9 rounded-xl bg-white border border-pink-200 hover:bg-pink-100 text-pink-700 font-black flex items-center justify-center transition-colors text-lg shadow-sm cursor-pointer"
+                      className="w-9 h-9 rounded-[8px] bg-white border border-pink-200 hover:bg-pink-100 text-pink-700 font-black flex items-center justify-center transition-colors text-lg shadow-sm cursor-pointer"
                     >
                       -
                     </button>
 
-                    <span className="w-8 text-center text-xl font-black text-pink-600">
+                    <span className="w-8 text-center text-xl font-black text-[#5337E1]">
                       {bathroomCount}
                     </span>
 
                     <button
                       onClick={handleIncrement}
-                      className="w-9 h-9 rounded-xl bg-pink-500 hover:bg-pink-600 text-white font-black flex items-center justify-center transition-colors text-lg shadow-md shadow-pink-500/20 cursor-pointer"
+                      className="w-9 h-9 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black flex items-center justify-center transition-colors text-lg shadow-md shadow-[#5337E1]/20 cursor-pointer"
                     >
                       +
                     </button>
@@ -189,7 +189,7 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
 
         <button
           onClick={() => onNavigate('kitchenDetail')}
-          className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-pink-600 font-black text-xs uppercase tracking-wider transition-all shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+          className="w-full sm:w-auto px-7 py-3.5 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-xs uppercase tracking-wider transition-all shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shrink-0 cursor-pointer border border-white/20"
         >
           <span>View Kitchen Service</span>
           <ArrowRight className="w-4 h-4" />

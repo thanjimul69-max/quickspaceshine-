@@ -225,7 +225,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
 
                           <button
                             onClick={onOpenKitchenModal}
-                            className="px-6 py-3.5 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider bg-pink-500 hover:bg-pink-600 text-white shadow-lg shadow-pink-500/25 transition-all flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95"
+                            className="px-6 py-3.5 rounded-[8px] font-extrabold text-xs sm:text-sm uppercase tracking-wider bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-lg shadow-[#5337E1]/25 transition-all flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95"
                           >
                             <Plus className="w-4 h-4 stroke-[3]" />
                             <span>Select Kitchen Package</span>
@@ -317,7 +317,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                       {bathroomCount === 0 ? (
                         <button
                           onClick={() => onChangeBathroomCount(1)}
-                          className="px-5 py-3 rounded-xl bg-pink-500 hover:bg-pink-600 text-white font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-md shadow-pink-500/25 cursor-pointer hover:scale-105 active:scale-95"
+                          className="px-6 py-3.5 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-extrabold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-md shadow-[#5337E1]/25 cursor-pointer hover:scale-105 active:scale-95"
                         >
                           <Plus className="w-4 h-4" />
                           <span>Add Bathroom (₹799)</span>
@@ -331,7 +331,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => onChangeBathroomCount(Math.max(0, bathroomCount - 1))}
-                              className="w-8 h-8 rounded-xl bg-white border border-pink-200 hover:bg-pink-100 text-pink-700 font-black flex items-center justify-center transition-colors text-base shadow-sm cursor-pointer"
+                              className="w-8 h-8 rounded-[8px] bg-white border border-pink-200 hover:bg-pink-100 text-pink-700 font-black flex items-center justify-center transition-colors text-base shadow-sm cursor-pointer"
                             >
                               -
                             </button>
@@ -342,7 +342,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
 
                             <button
                               onClick={() => onChangeBathroomCount(bathroomCount + 1)}
-                              className="w-8 h-8 rounded-xl bg-pink-500 hover:bg-pink-600 text-white font-black flex items-center justify-center transition-colors text-base shadow-md shadow-pink-500/20 cursor-pointer"
+                              className="w-8 h-8 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black flex items-center justify-center transition-colors text-base shadow-md shadow-[#5337E1]/20 cursor-pointer"
                             >
                               +
                             </button>
@@ -412,7 +412,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
 
           <button
             onClick={onScrollToBooking}
-            className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-pink-600 font-black text-xs uppercase tracking-wider transition-all shadow-lg hover:scale-105 active:scale-95 shrink-0"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-xs uppercase tracking-wider transition-all shadow-lg hover:scale-105 active:scale-95 shrink-0 cursor-pointer border border-white/20"
           >
             Proceed to Booking Details
           </button>

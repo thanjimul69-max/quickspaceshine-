@@ -74,7 +74,7 @@ export const ApplianceSelection: React.FC<ApplianceSelectionProps> = ({
           {onSkip && (
             <button
               onClick={onSkip}
-              className="self-start sm:self-auto px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm"
+              className="self-start sm:self-auto px-5 py-2.5 rounded-[8px] text-xs font-extrabold uppercase tracking-wider bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm"
             >
               <span>{selectedCount > 0 ? 'Proceed to Booking' : 'Skip Add-ons'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -167,17 +167,17 @@ export const ApplianceSelection: React.FC<ApplianceSelectionProps> = ({
                     </span>
                   </div>
 
-                  {/* Pink/Red Accent #E11D48 '+ ADD' Button */}
+                  {/* Action Button */}
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCardClick(appliance.id);
                     }}
-                    className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer shadow-md ${
+                    className={`px-5 py-2.5 rounded-[8px] text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer shadow-md ${
                       isSelected
                         ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/25 ring-2 ring-emerald-400/30'
-                        : 'bg-[#E11D48] hover:bg-rose-700 text-white shadow-rose-600/25 hover:scale-105 active:scale-95'
+                        : 'bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-[#5337E1]/25 hover:scale-105 active:scale-95'
                     }`}
                   >
                     {isSelected ? (
@@ -211,7 +211,7 @@ export const ApplianceSelection: React.FC<ApplianceSelectionProps> = ({
           {onSkip && (
             <button
               onClick={onSkip}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-lg shadow-pink-600/25 transition-all hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-[8px] font-black text-xs sm:text-sm uppercase tracking-wider bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-lg shadow-[#5337E1]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
             >
               <span>{selectedCount > 0 ? 'Proceed with Selected Add-ons' : 'Skip & Continue to Booking'}</span>
               <ArrowRight className="w-4 h-4 stroke-[3]" />

@@ -496,10 +496,10 @@ Please confirm my booking slot. Thank you!`;
                         id="btn-detect-live-gps"
                         onClick={handleDetectGPSLocation}
                         disabled={isDetectingLocation}
-                        className={`inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-extrabold text-xs shadow-sm transition-all duration-200 cursor-pointer ${
+                        className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[8px] font-extrabold text-xs shadow-sm transition-all duration-200 cursor-pointer ${
                           formData.gpsCoords
                             ? 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black'
-                            : 'bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white shadow-pink-500/25 shadow-lg active:scale-95'
+                            : 'bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-[#5337E1]/25 shadow-lg active:scale-95'
                         } ${isDetectingLocation ? 'opacity-70 cursor-wait' : ''}`}
                       >
                         {isDetectingLocation ? (
@@ -525,7 +525,7 @@ Please confirm my booking slot. Thank you!`;
                           href={formData.gpsLocationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 hover:text-white text-xs font-semibold transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-3 rounded-[8px] bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 hover:text-white text-xs font-semibold transition-colors"
                           title="Open coordinates in Google Maps in a new tab"
                         >
                           <span>Open Maps</span>
@@ -756,9 +756,9 @@ Please confirm my booking slot. Thank you!`;
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-2xl bg-pink-500 hover:bg-pink-600 text-white font-extrabold text-base uppercase tracking-wider shadow-lg shadow-pink-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-3"
+                className="w-full py-4 px-6 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-extrabold text-base uppercase tracking-wider shadow-lg shadow-[#5337E1]/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-3 cursor-pointer"
               >
-                <MessageSquare className="w-5 h-5 fill-white text-pink-500" />
+                <MessageSquare className="w-5 h-5 fill-white text-[#5337E1]" />
                 <span>Book Now on WhatsApp (+91 9854905077)</span>
                 <ArrowRight className="w-5 h-5" />
               </button>

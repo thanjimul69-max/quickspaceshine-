@@ -81,11 +81,11 @@ export const PincodeModal: React.FC<PincodeModalProps> = ({
                   placeholder="Enter 10-digit Mobile Number"
                   value={notifyPhone}
                   onChange={(e) => setNotifyPhone(e.target.value.replace(/\D/g, ''))}
-                  className="flex-1 px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm font-mono placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500"
+                  className="flex-1 px-4 py-2.5 rounded-[8px] bg-slate-50 border border-slate-300 text-slate-900 text-sm font-mono placeholder-slate-400 focus:outline-none focus:border-[#5337E1] focus:ring-1 focus:ring-[#5337E1]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2.5 rounded-xl bg-pink-500 hover:bg-pink-600 text-white font-bold text-xs uppercase tracking-wider shrink-0 transition-colors shadow-md shadow-pink-500/20"
+                  className="px-6 py-3 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-md shadow-[#5337E1]/20 cursor-pointer"
                 >
                   Notify Me
                 </button>
@@ -104,7 +104,7 @@ export const PincodeModal: React.FC<PincodeModalProps> = ({
           <div className="pt-2">
             <button
               onClick={onClose}
-              className="w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider transition-colors"
+              className="w-full py-3.5 px-6 rounded-[8px] bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
             >
               Close
             </button>

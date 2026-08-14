@@ -119,7 +119,7 @@ export const StickyCartBar: React.FC<StickyCartBarProps> = ({
             {/* Right Action Button */}
             <button
               onClick={handleButtonClick}
-              className="px-5 sm:px-8 py-3 sm:py-3.5 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-pink-600/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer shrink-0"
+              className="px-6 sm:px-8 py-3.5 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#5337E1]/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer shrink-0"
             >
               <span>{getButtonLabel()}</span>
               <ArrowRight className="w-4 h-4 stroke-[3]" />

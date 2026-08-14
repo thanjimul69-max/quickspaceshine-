@@ -203,7 +203,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 pt-2 w-full">
               <button
                 onClick={() => onScrollToSection('services')}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-pink-500 hover:bg-pink-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-xl shadow-pink-500/25 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-[#5337E1]/25 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Select Packages (From ₹1,999)</span>
                 <ArrowRight className="w-4 h-4" />
@@ -211,9 +211,9 @@ export const Hero: React.FC<HeroProps> = ({
 
               <a
                 href="tel:+919854905077"
-                className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-2xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-sm"
+                className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-[8px] bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-sm"
               >
-                <PhoneCall className="w-4 h-4 text-pink-600" />
+                <PhoneCall className="w-4 h-4 text-[#5337E1]" />
                 <span>Call +91 9854905077</span>
               </a>
             </div>
@@ -356,7 +356,7 @@ export const Hero: React.FC<HeroProps> = ({
                       onScrollToSection('services');
                     }
                   }}
-                  className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-md shadow-pink-600/20 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 px-6 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-md shadow-[#5337E1]/20 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Book Now / Select Packages</span>
                   <ArrowRight className="w-4 h-4 stroke-[2.5]" />
