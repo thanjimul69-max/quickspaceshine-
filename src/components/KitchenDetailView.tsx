@@ -149,7 +149,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                 Change Package
               </button>
             )}
-            <span className="hidden sm:inline-flex px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-pink-700 text-xs font-extrabold uppercase tracking-wider">
+            <span className="hidden sm:inline-flex px-3 py-1 rounded-full bg-slate-100 border border-slate-300 text-slate-900 text-xs font-extrabold uppercase tracking-wider">
               {activePkg ? activePkg.title : 'Kitchen Service'}
             </span>
           </div>
@@ -163,7 +163,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
               onClick={() => setStep(1)}
               className={`flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-2 rounded-xl text-left transition-all cursor-pointer ${
                 activeStep === 1
-                  ? 'bg-pink-50/80 border border-pink-300 text-pink-700 shadow-xs'
+                  ? 'bg-slate-100 border border-slate-400 text-black shadow-xs'
                   : activeStep > 1
                   ? 'bg-emerald-50/60 border border-emerald-200 text-emerald-700 hover:bg-slate-100'
                   : 'text-slate-400'
@@ -172,7 +172,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
                   activeStep === 1
-                    ? 'bg-pink-600 text-white'
+                    ? 'bg-black text-white'
                     : activeStep > 1
                     ? 'bg-emerald-600 text-white'
                     : 'bg-slate-200 text-slate-600'
@@ -195,7 +195,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
               onClick={() => setStep(2)}
               className={`flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-2 rounded-xl text-left transition-all cursor-pointer ${
                 activeStep === 2
-                  ? 'bg-pink-50/80 border border-pink-300 text-pink-700 shadow-xs'
+                  ? 'bg-slate-100 border border-slate-400 text-black shadow-xs'
                   : activeStep > 2
                   ? 'bg-emerald-50/60 border border-emerald-200 text-emerald-700 hover:bg-slate-100'
                   : 'text-slate-400 hover:bg-slate-50'
@@ -204,7 +204,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
                   activeStep === 2
-                    ? 'bg-pink-600 text-white'
+                    ? 'bg-black text-white'
                     : activeStep > 2
                     ? 'bg-emerald-600 text-white'
                     : 'bg-slate-200 text-slate-600'
@@ -227,13 +227,13 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
               onClick={() => setStep(3)}
               className={`flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-2 rounded-xl text-left transition-all cursor-pointer ${
                 activeStep === 3
-                  ? 'bg-pink-50/80 border border-pink-300 text-pink-700 shadow-xs'
+                  ? 'bg-slate-100 border border-slate-400 text-black shadow-xs'
                   : 'text-slate-400 hover:bg-slate-50'
               }`}
             >
               <div
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
-                  activeStep === 3 ? 'bg-pink-600 text-white' : 'bg-slate-200 text-slate-600'
+                  activeStep === 3 ? 'bg-black text-white' : 'bg-slate-200 text-slate-600'
                 }`}
               >
                 3
@@ -264,14 +264,14 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
             transition={{ duration: 0.2 }}
             className="space-y-6"
           >
-            {/* Main Service Card: Clean High-Resolution Poster & Action Flow */}
-            <div className="rounded-3xl p-1 bg-gradient-to-br from-pink-200 via-rose-100 to-pink-50 shadow-xl">
+            {/* Main Service Card */}
+            <div className="rounded-3xl p-1 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-50 shadow-xl">
               <div className="rounded-[22px] bg-white border border-slate-200 p-4 sm:p-6 space-y-6">
                 
                 {/* Active Package Banner Bar */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl bg-gradient-to-r from-pink-50 via-rose-50/60 to-pink-50 border border-pink-200/80">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl bg-gradient-to-r from-slate-50 via-slate-100 to-slate-50 border border-slate-300">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                    <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center shrink-0 shadow-md">
                       <Flame className="w-5 h-5" />
                     </div>
                     <div>
@@ -280,7 +280,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                           {activePkg ? activePkg.title : 'Complete Deep Kitchen Cleaning'}
                         </h2>
                         {activePkg?.badge && (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-pink-600 text-white">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-black text-white">
                             {activePkg.badge}
                           </span>
                         )}
@@ -295,7 +295,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                     <span className="text-xs text-slate-500 font-bold uppercase tracking-wider block">
                       Package Price
                     </span>
-                    <span className="text-2xl font-black text-pink-600">
+                    <span className="text-2xl font-black text-black">
                       ₹{packagePrice.toLocaleString('en-IN')}
                     </span>
                   </div>
@@ -352,15 +352,15 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
             </div>
 
             {/* Cross-sell Bathroom banner */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 text-white shadow-xl shadow-pink-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white shadow-xl shadow-black/20 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-700">
               <div className="space-y-1 text-center sm:text-left">
-                <span className="text-[10px] font-black uppercase tracking-widest text-pink-100">
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">
                   Combo Cleaning Available
                 </span>
                 <h3 className="text-base sm:text-lg font-black text-white">
                   Need Bathroom Deep Cleaning Too?
                 </h3>
-                <p className="text-xs text-pink-100">
+                <p className="text-xs text-slate-300">
                   Add high-pressure descaling & disinfectant polish for just ₹799 (₹699/ea for 2+).
                 </p>
               </div>
@@ -388,14 +388,14 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
             transition={{ duration: 0.2 }}
             className="space-y-6"
           >
-            <div className="rounded-3xl p-1 bg-gradient-to-br from-pink-200 via-rose-100 to-pink-50 shadow-xl">
+            <div className="rounded-3xl p-1 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-50 shadow-xl">
               <div className="rounded-[22px] bg-white border border-slate-200 p-4 sm:p-7 space-y-6">
                 
                 {/* Section Header with Skip Button */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 text-pink-700 border border-pink-200 text-xs font-extrabold uppercase tracking-wider mb-2">
-                      <Sparkles className="w-3.5 h-3.5 text-pink-600" />
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-900 border border-slate-300 text-xs font-extrabold uppercase tracking-wider mb-2">
+                      <Sparkles className="w-3.5 h-3.5 text-black" />
                       <span>Appliance Care Add-ons (Optional)</span>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -428,8 +428,8 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                         onClick={() => handleAddClick(appliance.id)}
                         className={`group relative rounded-2xl p-3 sm:p-4 border-2 transition-all cursor-pointer select-none flex items-center justify-between gap-3 sm:gap-4 ${
                           isSelected
-                            ? 'bg-pink-50/60 border-pink-500 shadow-md ring-2 ring-pink-500/20'
-                            : 'bg-white border-slate-200 hover:border-pink-300 shadow-xs hover:shadow-md'
+                            ? 'bg-slate-100 border-black shadow-md ring-2 ring-black/20'
+                            : 'bg-white border-slate-200 hover:border-slate-400 shadow-xs hover:shadow-md'
                         }`}
                       >
                         {/* Left Thumbnail (Compact Aspect) */}
@@ -455,8 +455,8 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                             <span
                               className={`absolute bottom-1 left-1 px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-black uppercase tracking-wider shadow-sm ${
                                 isMicrowave
-                                  ? 'bg-pink-600 text-white'
-                                  : 'bg-slate-900/90 text-pink-300'
+                                  ? 'bg-black text-white'
+                                  : 'bg-slate-900/90 text-white'
                               }`}
                             >
                               {appliance.badge}
@@ -467,7 +467,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                         {/* Center Description & Info */}
                         <div className="flex-1 min-w-0 pr-1">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <h4 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-pink-600 transition-colors">
+                            <h4 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-black transition-colors">
                               {appliance.name}
                             </h4>
                           </div>
@@ -475,7 +475,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                             {appliance.description}
                           </p>
                           <div className="mt-1 flex items-center gap-2">
-                            <span className="text-sm sm:text-base font-black text-pink-600">
+                            <span className="text-sm sm:text-base font-black text-black">
                               +₹{appliance.price.toLocaleString('en-IN')}
                             </span>
                             <span className="text-[10px] text-slate-400 font-semibold uppercase">
@@ -520,7 +520,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                 <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-xs text-slate-700 font-bold">
                     {selectedAppliances.length > 0 ? (
-                      <span className="text-pink-600">
+                      <span className="text-black">
                         {selectedAppliances.length} appliance(s) selected (+₹{applianceTotal.toLocaleString('en-IN')})
                       </span>
                     ) : (
@@ -562,7 +562,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
             transition={{ duration: 0.2 }}
             className="space-y-6"
           >
-            <div className="rounded-3xl p-1 bg-gradient-to-br from-pink-200 via-rose-100 to-pink-50 shadow-xl">
+            <div className="rounded-3xl p-1 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-50 shadow-xl">
               <div className="rounded-[22px] bg-white border border-slate-200 p-4 sm:p-7 space-y-6">
                 
                 {/* Header */}
@@ -585,7 +585,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                 <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center shrink-0">
                         <Flame className="w-5 h-5" />
                       </div>
                       <div>
@@ -593,7 +593,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                           <h4 className="text-base font-black text-slate-900">
                             {activePkg ? activePkg.title : 'Complete Deep Kitchen Cleaning'}
                           </h4>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-pink-100 text-pink-700 border border-pink-200">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200 text-slate-900 border border-slate-300">
                             Primary Service
                           </span>
                         </div>
@@ -604,12 +604,12 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                     </div>
 
                     <div className="text-right shrink-0">
-                      <span className="text-lg sm:text-xl font-black text-pink-600">
+                      <span className="text-lg sm:text-xl font-black text-black">
                         ₹{packagePrice.toLocaleString('en-IN')}
                       </span>
                       <button
                         onClick={handleOpenModal}
-                        className="block text-[11px] font-bold text-pink-600 hover:text-pink-700 underline mt-1"
+                        className="block text-[11px] font-bold text-black hover:underline mt-1"
                       >
                         Change
                       </button>
@@ -641,12 +641,12 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                 <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
                   <div className="flex items-center justify-between">
                     <h4 className="text-sm font-black text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                      <Layers className="w-4 h-4 text-pink-600" />
+                      <Layers className="w-4 h-4 text-black" />
                       <span>Appliance Care Add-ons ({selectedAppliances.length})</span>
                     </h4>
                     <button
                       onClick={() => setStep(2)}
-                      className="text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1 cursor-pointer"
+                      className="text-xs font-bold text-black hover:underline flex items-center gap-1 cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>{selectedAppliances.length > 0 ? 'Edit Add-ons' : '+ Add Appliances'}</span>
@@ -717,7 +717,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                     {selectedAppliances.length > 0 && (
                       <div className="flex items-center justify-between text-slate-700">
                         <span>Appliance Add-ons ({selectedAppliances.length} item{selectedAppliances.length > 1 ? 's' : ''})</span>
-                        <span className="font-bold text-pink-600">+₹{applianceTotal.toLocaleString('en-IN')}</span>
+                        <span className="font-bold text-black">+₹{applianceTotal.toLocaleString('en-IN')}</span>
                       </div>
                     )}
 
@@ -733,7 +733,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
 
                     <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-base sm:text-xl font-black text-slate-900">
                       <span>Final Estimated Total</span>
-                      <span className="text-pink-600 font-black">₹{grandTotal.toLocaleString('en-IN')}</span>
+                      <span className="text-black font-black">₹{grandTotal.toLocaleString('en-IN')}</span>
                     </div>
                   </div>
                 </div>
@@ -744,8 +744,8 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span className="font-bold">Pay After Service Complete</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-pink-50/70 border border-pink-100 flex items-center gap-2 text-pink-800">
-                    <CalendarCheck className="w-4 h-4 text-pink-600 shrink-0" />
+                  <div className="p-3 rounded-xl bg-slate-100 border border-slate-200 flex items-center gap-2 text-slate-800">
+                    <CalendarCheck className="w-4 h-4 text-black shrink-0" />
                     <span className="font-bold">Instant Slot Confirmation</span>
                   </div>
                   <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-100 flex items-center gap-2 text-amber-800">

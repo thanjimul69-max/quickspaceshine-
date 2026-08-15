@@ -24,15 +24,15 @@ export const ToastContainer: React.FC<ToastProps> = ({ toasts, onDismiss }) => {
                 : toast.type === 'error'
                 ? 'bg-red-50 border-red-300 text-red-900'
                 : toast.type === 'success'
-                ? 'bg-pink-50 border-pink-300 text-pink-950'
+                ? 'bg-emerald-50 border-emerald-300 text-emerald-950'
                 : 'bg-white border-slate-300 text-slate-900'
             }`}
           >
             <div className="mt-0.5 shrink-0">
               {toast.type === 'warning' && <AlertCircle className="w-5 h-5 text-amber-600" />}
               {toast.type === 'error' && <AlertCircle className="w-5 h-5 text-red-600" />}
-              {toast.type === 'success' && <CheckCircle className="w-5 h-5 text-pink-600" />}
-              {toast.type === 'info' && <Info className="w-5 h-5 text-pink-600" />}
+              {toast.type === 'success' && <CheckCircle className="w-5 h-5 text-emerald-600" />}
+              {toast.type === 'info' && <Info className="w-5 h-5 text-slate-800" />}
             </div>
             <div className="flex-1 text-sm font-semibold leading-snug">
               {toast.message}

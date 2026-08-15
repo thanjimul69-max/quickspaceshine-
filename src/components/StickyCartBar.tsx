@@ -96,7 +96,7 @@ export const StickyCartBar: React.FC<StickyCartBarProps> = ({
             
             {/* Left Total Info */}
             <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <div className="p-2 sm:p-2.5 rounded-2xl bg-pink-50 border border-pink-200 text-pink-600 flex items-center justify-center shrink-0">
+              <div className="p-2 sm:p-2.5 rounded-2xl bg-slate-100 border border-slate-300 text-black flex items-center justify-center shrink-0">
                 <ShoppingBag className="w-5 h-5" />
               </div>
 
@@ -105,12 +105,12 @@ export const StickyCartBar: React.FC<StickyCartBarProps> = ({
                   <span className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">
                     Total
                   </span>
-                  <span className="text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-full bg-pink-50 text-pink-700 border border-pink-200">
+                  <span className="text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-slate-900 border border-slate-300">
                     {totalItemsCount} {totalItemsCount === 1 ? 'Service' : 'Items'} Selected
                   </span>
                 </div>
                 
-                <div className="text-xl sm:text-2xl font-black text-pink-600 tracking-tight leading-tight mt-0.5">
+                <div className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight mt-0.5">
                   ₹{total.toLocaleString('en-IN')}
                 </div>
               </div>

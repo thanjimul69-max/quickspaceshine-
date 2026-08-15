@@ -2,23 +2,23 @@ import React from 'react';
 
 interface QSSLogoProps {
   className?: string;
-  variant?: 'gradient' | 'white' | 'dark' | 'emerald' | 'pink';
+  variant?: 'gradient' | 'white' | 'dark' | 'emerald' | 'pink' | 'black';
 }
 
 export const QSSLogo: React.FC<QSSLogoProps> = ({
   className = 'w-10 h-10',
-  variant = 'gradient',
+  variant = 'dark',
 }) => {
   const fillColor =
     variant === 'white'
       ? '#FFFFFF'
-      : variant === 'dark'
-      ? '#0F172A'
       : variant === 'emerald'
       ? '#10B981'
       : variant === 'pink'
-      ? '#EC4899'
-      : 'url(#qss-brand-grad)';
+      ? '#000000'
+      : variant === 'dark' || variant === 'black'
+      ? '#000000'
+      : '#000000';
 
   return (
     <svg
@@ -30,9 +30,9 @@ export const QSSLogo: React.FC<QSSLogoProps> = ({
     >
       <defs>
         <linearGradient id="qss-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ec4899" />
-          <stop offset="50%" stopColor="#f43f5e" />
-          <stop offset="100%" stopColor="#e11d48" />
+          <stop offset="0%" stopColor="#000000" />
+          <stop offset="50%" stopColor="#09090b" />
+          <stop offset="100%" stopColor="#000000" />
         </linearGradient>
       </defs>
 

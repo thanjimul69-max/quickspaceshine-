@@ -352,13 +352,13 @@ Please confirm my booking slot. Thank you!`;
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-50 border border-pink-200 text-xs font-bold text-pink-700 uppercase tracking-widest">
-            <MessageSquare className="w-3.5 h-3.5 text-pink-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 border border-slate-300 text-xs font-bold text-slate-900 uppercase tracking-widest">
+            <MessageSquare className="w-3.5 h-3.5 text-black" />
             <span>Instant Booking Confirmation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             Book Your Service On{' '}
-            <span className="bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
+            <span className="text-black underline decoration-slate-300">
               WhatsApp
             </span>
           </h2>
@@ -377,7 +377,7 @@ Please confirm my booking slot. Thank you!`;
               
               {/* Section 1: Customer Contact Info */}
               <div className="space-y-4">
-                <h3 className="text-sm font-extrabold uppercase tracking-widest text-pink-600 flex items-center gap-2 pb-2 border-b border-slate-200">
+                <h3 className="text-sm font-extrabold uppercase tracking-widest text-black flex items-center gap-2 pb-2 border-b border-slate-200">
                   <User className="w-4 h-4" />
                   1. Contact Information
                 </h3>
@@ -386,7 +386,7 @@ Please confirm my booking slot. Thank you!`;
                   {/* Full Name */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                      Customer Full Name <span className="text-pink-600">*</span>
+                      Customer Full Name <span className="text-black">*</span>
                     </label>
                     <div className="relative">
                       <input
@@ -397,7 +397,7 @@ Please confirm my booking slot. Thank you!`;
                         className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 transition-all ${
                           formErrors.fullName
                             ? 'border-red-500 focus:ring-red-500'
-                            : 'border-slate-300 focus:border-pink-500 focus:ring-pink-500'
+                            : 'border-slate-300 focus:border-black focus:ring-black'
                         }`}
                       />
                       <User className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2" />
@@ -412,7 +412,7 @@ Please confirm my booking slot. Thank you!`;
                   {/* Indian Mobile Number */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                      Indian Mobile Number (+91) <span className="text-pink-600">*</span>
+                      Indian Mobile Number (+91) <span className="text-black">*</span>
                     </label>
                     <div className="relative flex items-center">
                       <span className="absolute left-3.5 text-xs font-bold text-slate-500 pointer-events-none">
@@ -429,7 +429,7 @@ Please confirm my booking slot. Thank you!`;
                         className={`w-full pl-12 pr-4 py-3 rounded-xl bg-slate-50 border text-slate-900 text-sm font-mono placeholder-slate-400 focus:outline-none focus:ring-1 transition-all ${
                           formErrors.mobile
                             ? 'border-red-500 focus:ring-red-500'
-                            : 'border-slate-300 focus:border-pink-500 focus:ring-pink-500'
+                            : 'border-slate-300 focus:border-black focus:ring-black'
                         }`}
                       />
                       <Phone className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2" />
@@ -452,7 +452,7 @@ Please confirm my booking slot. Thank you!`;
                         placeholder="e.g. mycleanhome@gmail.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
                       />
                       <Mail className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2" />
                     </div>
@@ -463,7 +463,7 @@ Please confirm my booking slot. Thank you!`;
               {/* Section 2: Address & Pincode */}
               <div className="space-y-4 pt-2">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-200">
-                  <h3 className="text-sm font-extrabold uppercase tracking-widest text-pink-600 flex items-center gap-2">
+                  <h3 className="text-sm font-extrabold uppercase tracking-widest text-black flex items-center gap-2">
                     <Home className="w-4 h-4" />
                     2. Service Address (Chennai)
                   </h3>
@@ -478,7 +478,7 @@ Please confirm my booking slot. Thank you!`;
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="inline-flex items-center justify-center p-1.5 rounded-lg bg-pink-500/20 text-pink-400">
+                        <span className="inline-flex items-center justify-center p-1.5 rounded-lg bg-slate-800 text-slate-200">
                           <Navigation className="w-4 h-4" />
                         </span>
                         <h4 className="text-xs font-black tracking-wide uppercase text-slate-200">
@@ -562,7 +562,7 @@ Please confirm my booking slot. Thank you!`;
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
                       <label className="block text-xs font-bold text-slate-700">
-                        Verified Pincode <span className="text-pink-600">*</span>
+                        Verified Pincode <span className="text-black">*</span>
                       </label>
                       <span className="text-[10px] font-semibold text-slate-400">
                         25km Radius of Guindy
@@ -581,7 +581,7 @@ Please confirm my booking slot. Thank you!`;
                             ? 'border-emerald-500 bg-emerald-50/30 text-emerald-950 focus:ring-emerald-500'
                             : formErrors.pincode || (formData.pincode.length === 6 && !checkPincodeAvailability(formData.pincode).isAvailable)
                             ? 'border-rose-500 bg-rose-50/30 text-rose-950 focus:ring-rose-500'
-                            : 'border-slate-300 focus:border-pink-500 focus:ring-pink-500'
+                            : 'border-slate-300 focus:border-black focus:ring-black'
                         }`}
                       />
                       <MapPin className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -619,7 +619,7 @@ Please confirm my booking slot. Thank you!`;
                   {/* House / Flat Number */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                      House / Flat / Door No <span className="text-pink-600">*</span>
+                      House / Flat / Door No <span className="text-black">*</span>
                     </label>
                     <input
                       type="text"
@@ -629,7 +629,7 @@ Please confirm my booking slot. Thank you!`;
                       className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 transition-all ${
                         formErrors.houseNo
                           ? 'border-red-500 focus:ring-red-500'
-                          : 'border-slate-300 focus:border-pink-500 focus:ring-pink-500'
+                          : 'border-slate-300 focus:border-black focus:ring-black'
                       }`}
                     />
                     {formErrors.houseNo && (
@@ -642,7 +642,7 @@ Please confirm my booking slot. Thank you!`;
                   {/* Colony / Street Name / Area */}
                   <div className="sm:col-span-2">
                     <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                      Colony Name / Street Name / Area <span className="text-pink-600">*</span>
+                      Colony Name / Street Name / Area <span className="text-black">*</span>
                     </label>
                     <input
                       type="text"
@@ -652,7 +652,7 @@ Please confirm my booking slot. Thank you!`;
                       className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-1 transition-all ${
                         formErrors.streetArea
                           ? 'border-red-500 focus:ring-red-500'
-                          : 'border-slate-300 focus:border-pink-500 focus:ring-pink-500'
+                          : 'border-slate-300 focus:border-black focus:ring-black'
                       }`}
                     />
                     {formErrors.streetArea && (
@@ -672,7 +672,7 @@ Please confirm my booking slot. Thank you!`;
                       placeholder="Main Road / Landmark"
                       value={formData.addressLine1}
                       onChange={(e) => setFormData({ ...formData, addressLine1: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
                     />
                   </div>
 
@@ -685,7 +685,7 @@ Please confirm my booking slot. Thank you!`;
                       placeholder="Floor / Additional Notes"
                       value={formData.addressLine2}
                       onChange={(e) => setFormData({ ...formData, addressLine2: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
                     />
                   </div>
                 </div>
@@ -693,7 +693,7 @@ Please confirm my booking slot. Thank you!`;
 
               {/* Section 3: Date & Time Picker */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-sm font-extrabold uppercase tracking-widest text-pink-600 flex items-center gap-2 pb-2 border-b border-slate-200">
+                <h3 className="text-sm font-extrabold uppercase tracking-widest text-black flex items-center gap-2 pb-2 border-b border-slate-200">
                   <Calendar className="w-4 h-4" />
                   3. Preferred Date & Time Slot
                 </h3>
@@ -702,7 +702,7 @@ Please confirm my booking slot. Thank you!`;
                   {/* Preferred Date */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                      Service Date <span className="text-pink-600">*</span>
+                      Service Date <span className="text-black">*</span>
                     </label>
                     <div className="relative">
                       <input
@@ -712,7 +712,7 @@ Please confirm my booking slot. Thank you!`;
                         onChange={(e) =>
                           setFormData({ ...formData, preferredDate: e.target.value })
                         }
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
                       />
                     </div>
                   </div>
@@ -720,7 +720,7 @@ Please confirm my booking slot. Thank you!`;
                   {/* Time Slot Picker */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                      Preferred Time Slot <span className="text-pink-600">*</span>
+                      Preferred Time Slot <span className="text-black">*</span>
                     </label>
                     <div className="relative">
                       <select
@@ -728,7 +728,7 @@ Please confirm my booking slot. Thank you!`;
                         onChange={(e) =>
                           setFormData({ ...formData, preferredTimeSlot: e.target.value })
                         }
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
                       >
                         <option value="Morning (9:00 AM - 12:00 PM)">
                           Morning (9:00 AM - 12:00 PM)
@@ -777,7 +777,7 @@ Please confirm my booking slot. Thank you!`;
               
               <div className="flex items-center justify-between pb-4 border-b border-slate-200">
                 <h3 className="text-lg font-black text-slate-900">Booking Summary</h3>
-                <span className="text-xs font-bold text-pink-700 bg-pink-50 px-2.5 py-1 rounded-full border border-pink-200">
+                <span className="text-xs font-bold text-slate-900 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-300">
                   Live Calculator
                 </span>
               </div>
@@ -790,7 +790,7 @@ Please confirm my booking slot. Thank you!`;
                       <h4 className="font-bold text-slate-900">{activeKitchenPkg.title}</h4>
                       <p className="text-[11px] text-slate-500">{activeKitchenPkg.subtitle}</p>
                     </div>
-                    <span className="font-extrabold text-pink-600 text-sm">₹{activeKitchenPkg.price.toLocaleString('en-IN')}</span>
+                    <span className="font-extrabold text-black text-sm">₹{activeKitchenPkg.price.toLocaleString('en-IN')}</span>
                   </div>
                 )}
 
@@ -800,7 +800,7 @@ Please confirm my booking slot. Thank you!`;
                   return (
                     <div key={appId} className="flex items-center justify-between py-1.5 border-b border-slate-100">
                       <span className="text-slate-700 font-medium">+ {app.name}</span>
-                      <span className="font-extrabold text-pink-600">₹{app.price}</span>
+                      <span className="font-extrabold text-black">₹{app.price}</span>
                     </div>
                   );
                 })}
@@ -813,7 +813,7 @@ Please confirm my booking slot. Thank you!`;
                         {bathroomCount} x Bathroom Unit(s) {bathroomCount >= 2 ? '(@ ₹699/ea)' : '(@ ₹799/ea)'}
                       </p>
                     </div>
-                    <span className="font-extrabold text-pink-600 text-sm">
+                    <span className="font-extrabold text-black text-sm">
                       ₹{calculateBathroomTotal(bathroomCount)}
                     </span>
                   </div>
@@ -832,7 +832,7 @@ Please confirm my booking slot. Thank you!`;
                   <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
                     Calculated Total
                   </span>
-                  <span className="text-3xl font-black text-pink-600">
+                  <span className="text-3xl font-black text-black">
                     ₹{totalPrice.toLocaleString('en-IN')}
                   </span>
                 </div>
@@ -843,7 +843,7 @@ Please confirm my booking slot. Thank you!`;
 
               {/* Location Badge */}
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-pink-500 shrink-0" />
+                <MapPin className="w-4 h-4 text-black shrink-0" />
                 <span>
                   Dispatching from <strong className="text-slate-900">Guindy HQ (600032)</strong>
                 </span>

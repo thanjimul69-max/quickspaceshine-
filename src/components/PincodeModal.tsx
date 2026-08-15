@@ -48,13 +48,13 @@ export const PincodeModal: React.FC<PincodeModalProps> = ({
           </button>
 
           {/* Modal Header Icon */}
-          <div className="w-14 h-14 rounded-2xl bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-600 mx-auto">
+          <div className="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-300 flex items-center justify-center text-black mx-auto">
             <AlertCircle className="w-7 h-7" />
           </div>
 
           <div className="text-center space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-pink-700 text-xs font-bold font-mono">
-              <MapPin className="w-3.5 h-3.5 text-pink-600" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-300 text-slate-900 text-xs font-bold font-mono">
+              <MapPin className="w-3.5 h-3.5 text-black" />
               <span>PINCODE: {pincode}</span>
             </div>
 
@@ -92,8 +92,8 @@ export const PincodeModal: React.FC<PincodeModalProps> = ({
               </div>
             </form>
           ) : (
-            <div className="p-4 rounded-2xl bg-pink-50 border border-pink-200 text-center space-y-1">
-              <CheckCircle2 className="w-6 h-6 text-pink-600 mx-auto" />
+            <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-1">
+              <CheckCircle2 className="w-6 h-6 text-emerald-600 mx-auto" />
               <h4 className="text-sm font-bold text-slate-900">Request Received!</h4>
               <p className="text-xs text-slate-600 font-medium">
                 We will send an SMS alert to +91 {notifyPhone} as soon as QSS dispatch arrives in pincode {pincode}.

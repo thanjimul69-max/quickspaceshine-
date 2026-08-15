@@ -16,6 +16,7 @@ import { Footer } from './components/Footer';
 import { StickyCartBar } from './components/StickyCartBar';
 import { PincodeModal } from './components/PincodeModal';
 import { KitchenPackageModal } from './components/KitchenPackageModal';
+import { BathroomPackageModal } from './components/BathroomPackageModal';
 import { KitchenDetailView } from './components/KitchenDetailView';
 import { BathroomDetailView } from './components/BathroomDetailView';
 
@@ -31,6 +32,7 @@ export default function App() {
   // Selected Services State (Defaults to NONE selected = ₹0 total on initial load)
   const [kitchenPackageId, setKitchenPackageId] = useState<'classic' | 'complete' | null>(null);
   const [isKitchenModalOpen, setIsKitchenModalOpen] = useState(false);
+  const [isBathroomModalOpen, setIsBathroomModalOpen] = useState(false);
   const [selectedAppliances, setSelectedAppliances] = useState<string[]>([]);
   const [bathroomCount, setBathroomCount] = useState<number>(0);
 
@@ -144,7 +146,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-white text-slate-900 font-sans selection:bg-pink-500 selection:text-white relative">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-white text-slate-900 font-sans selection:bg-black selection:text-white relative">
       
       {/* Toast Notifications */}
       <ToastContainer toasts={toasts} onDismiss={handleDismissToast} />
@@ -158,8 +160,8 @@ export default function App() {
         onNavigate={handleNavigate}
       />
 
-      {/* Main Content Area with Top Padding to accommodate the Fixed Header */}
-      <main id="main-content" className="pt-20 w-full max-w-full">
+      {/* Main Content Area */}
+      <main id="main-content" className="w-full max-w-full">
         {/* Main View Router */}
         {currentPage === 'home' && (
           <>
@@ -182,6 +184,7 @@ export default function App() {
               onToggleKitchen={handleToggleKitchen}
               onSelectKitchenPackage={handleSelectKitchenPackage}
               onOpenKitchenModal={() => setIsKitchenModalOpen(true)}
+              onOpenBathroomModal={() => setIsBathroomModalOpen(true)}
               onToggleAppliance={handleToggleAppliance}
               onChangeBathroomCount={setBathroomCount}
               onShowToast={showToast}
@@ -284,6 +287,16 @@ export default function App() {
         selectedPackageId={kitchenPackageId}
         onClose={() => setIsKitchenModalOpen(false)}
         onSelectPackage={handleSelectKitchenPackage}
+      />
+
+      {/* Bathroom Package Bottom Sheet Modal */}
+      <BathroomPackageModal
+        isOpen={isBathroomModalOpen}
+        bathroomCount={bathroomCount}
+        onClose={() => setIsBathroomModalOpen(false)}
+        onChangeBathroomCount={setBathroomCount}
+        onProceedToBooking={() => handleNavigate('booking')}
+        onShowToast={showToast}
       />
 
     </div>

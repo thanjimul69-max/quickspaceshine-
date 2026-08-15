@@ -7,24 +7,21 @@ interface FounderProps {
 
 export const Founder: React.FC<FounderProps> = ({ onScrollToBooking }) => {
   return (
-    <section id="founder" className="py-16 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-pink-50/40 relative overflow-hidden border-t border-slate-200">
+    <section id="founder" className="py-16 lg:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-200">
       {/* Subtle Background Glows */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-pink-100/60 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-slate-200/40 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-emerald-100/50 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header Eyebrow */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pink-100/80 border border-pink-200 text-xs font-black text-pink-700 uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-pink-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 border border-slate-300 text-xs font-black text-slate-900 uppercase tracking-widest">
+            <Sparkles className="w-3.5 h-3.5 text-black" />
             <span>Our Story & Vision</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Meet The{' '}
-            <span className="bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 bg-clip-text text-transparent">
-              Founder
-            </span>
+            Meet The <span className="text-black">Founder</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-medium">
             The dedication, passion, and standards powering Chennai's most trusted deep cleaning service.
@@ -39,10 +36,10 @@ export const Founder: React.FC<FounderProps> = ({ onScrollToBooking }) => {
             <div className="lg:col-span-5 flex flex-col items-center text-center">
               <div className="relative group">
                 {/* Decorative Soft Glow */}
-                <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-pink-500/20 via-rose-400/20 to-emerald-400/20 opacity-60 blur-lg group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-slate-500/10 via-slate-400/10 to-emerald-400/20 opacity-60 blur-lg group-hover:opacity-80 transition-opacity duration-300" />
                 
                 {/* Photo Frame Card Container */}
-                <div className="relative w-52 h-56 sm:w-60 sm:h-64 md:w-64 md:h-72 rounded-2xl md:rounded-3xl overflow-hidden border-2 border-pink-100 shadow-xl bg-slate-100 flex items-center justify-center">
+                <div className="relative w-52 h-56 sm:w-60 sm:h-64 md:w-64 md:h-72 rounded-2xl md:rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl bg-slate-100 flex items-center justify-center">
                   <img
                     src="https://i.ibb.co/DqjbsJG/IMG-20260814-084320.jpg"
                     alt="Quick Space Shine Founder"
@@ -63,11 +60,11 @@ export const Founder: React.FC<FounderProps> = ({ onScrollToBooking }) => {
                 <h3 className="text-xl sm:text-2xl font-black text-slate-900">
                   Quick Space Shine
                 </h3>
-                <p className="text-xs sm:text-sm font-bold text-pink-600">
+                <p className="text-xs sm:text-sm font-bold text-black">
                   Founder & Operations Head — Quick Space Shine
                 </p>
                 <div className="flex items-center justify-center gap-1 text-[11px] font-semibold text-slate-500 pt-1">
-                  <MapPin className="w-3.5 h-3.5 text-pink-500" />
+                  <MapPin className="w-3.5 h-3.5 text-black" />
                   <span>Guindy / Ekkattuthangal, Chennai</span>
                 </div>
               </div>
@@ -84,7 +81,7 @@ export const Founder: React.FC<FounderProps> = ({ onScrollToBooking }) => {
                 </div>
 
                 <blockquote className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
-                  &ldquo;With over <span className="font-extrabold text-slate-900">3 years of hands-on experience</span> in professional deep cleaning and steam disinfection services in Chennai, I founded <span className="font-extrabold text-pink-600">Quick Space Shine</span> with a single mission — to bring standard, transparent, and 100% hygienic cleaning to homes. We don&apos;t just surface-clean; we treat your home with the care, science, and detail it deserves.&rdquo;
+                  &ldquo;With over <span className="font-extrabold text-slate-900">3 years of hands-on experience</span> in professional deep cleaning and steam disinfection services in Chennai, I founded <span className="font-extrabold text-black">Quick Space Shine</span> with a single mission — to bring standard, transparent, and 100% hygienic cleaning to homes. We don&apos;t just surface-clean; we treat your home with the care, science, and detail it deserves.&rdquo;
                 </blockquote>
               </div>
 
@@ -92,8 +89,8 @@ export const Founder: React.FC<FounderProps> = ({ onScrollToBooking }) => {
               <div className="grid sm:grid-cols-3 gap-3 pt-2">
                 
                 {/* Badge 1 */}
-                <div className="p-3.5 rounded-2xl bg-pink-50/80 border border-pink-200/80 flex items-start gap-3 transition-transform hover:-translate-y-0.5">
-                  <div className="p-2 rounded-xl bg-pink-600 text-white shrink-0 shadow-sm">
+                <div className="p-3.5 rounded-2xl bg-slate-100 border border-slate-300 flex items-start gap-3 transition-transform hover:-translate-y-0.5">
+                  <div className="p-2 rounded-xl bg-black text-white shrink-0 shadow-sm">
                     <Award className="w-4 h-4" />
                   </div>
                   <div>

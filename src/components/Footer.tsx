@@ -1,6 +1,5 @@
 import React from 'react';
 import { MapPin, Phone, MessageSquare, Sparkles } from 'lucide-react';
-import { QSSLogo } from './QSSLogo';
 
 interface FooterProps {
   onScrollToSection: (id: string) => void;
@@ -32,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
               </div>
               <div>
                 <h3 className="text-base font-black text-slate-900">Quick Space Shine</h3>
-                <p className="text-[11px] text-pink-600 font-bold">Clean Kitchen. Better Life.</p>
+                <p className="text-[11px] text-black font-bold">Clean Kitchen. Better Life.</p>
               </div>
             </div>
 
@@ -42,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
 
             <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
               <div className="flex items-center gap-2 text-slate-900 font-bold">
-                <MapPin className="w-4 h-4 text-pink-600 shrink-0" />
+                <MapPin className="w-4 h-4 text-black shrink-0" />
                 <span>Head Office Location:</span>
               </div>
               <p className="text-slate-700 pl-6 font-semibold">
@@ -60,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
               <li>
                 <button
                   onClick={() => onScrollToSection('services')}
-                  className="hover:text-pink-600 transition-colors cursor-pointer"
+                  className="hover:text-black transition-colors cursor-pointer"
                 >
                   Complete Kitchen Cleaning (₹1,999)
                 </button>
@@ -68,7 +67,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
               <li>
                 <button
                   onClick={() => onScrollToSection('services')}
-                  className="hover:text-pink-600 transition-colors cursor-pointer"
+                  className="hover:text-black transition-colors cursor-pointer"
                 >
                   Appliance Add-ons (Fridge, Chimney, Microwave)
                 </button>
@@ -76,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
               <li>
                 <button
                   onClick={() => onScrollToSection('services')}
-                  className="hover:text-pink-600 transition-colors cursor-pointer"
+                  className="hover:text-black transition-colors cursor-pointer"
                 >
                   Premium Deep Bathroom Cleaning (₹799 / ₹699)
                 </button>
@@ -84,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
               <li>
                 <button
                   onClick={() => onScrollToSection('before-after')}
-                  className="hover:text-pink-600 transition-colors cursor-pointer"
+                  className="hover:text-black transition-colors cursor-pointer"
                 >
                   Steam Machine Technology
                 </button>
@@ -92,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
               <li>
                 <button
                   onClick={() => onScrollToSection('founder')}
-                  className="hover:text-pink-600 transition-colors cursor-pointer text-pink-600 font-semibold"
+                  className="hover:text-black transition-colors cursor-pointer text-black font-semibold"
                 >
                   Meet The Founder & Our Story
                 </button>
@@ -100,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
               <li>
                 <button
                   onClick={() => onScrollToSection('reviews')}
-                  className="hover:text-pink-600 transition-colors cursor-pointer"
+                  className="hover:text-black transition-colors cursor-pointer"
                 >
                   Chennai Customer Reviews
                 </button>
@@ -146,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
           <p>© {new Date().getFullYear()} Quick Space Shine (QSS). All rights reserved.</p>
           <p className="flex items-center gap-1 font-semibold">
             <span>Clean Kitchen. Better Life.</span>
-            <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+            <Sparkles className="w-3.5 h-3.5 text-black" />
           </p>
         </div>
 

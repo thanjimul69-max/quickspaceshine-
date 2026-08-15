@@ -56,18 +56,18 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
           <span>Back to Home</span>
         </button>
 
-        <span className="px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-pink-700 text-xs font-extrabold uppercase tracking-wider">
+        <span className="px-3 py-1 rounded-full bg-slate-100 border border-slate-300 text-slate-900 text-xs font-extrabold uppercase tracking-wider">
           Bathroom Service
         </span>
       </div>
 
       {/* 2. Header: Title & Pricing Card */}
-      <div className="rounded-3xl p-1 bg-gradient-to-br from-pink-200 via-rose-100 to-pink-50 shadow-xl">
+      <div className="rounded-3xl p-1 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-50 shadow-xl">
         <div className="rounded-[22px] bg-white border border-slate-200 p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b border-slate-100">
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-pink-700 text-xs font-extrabold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-pink-600" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-300 text-slate-900 text-xs font-extrabold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-black" />
                 <span>Deep Scaled Stain Removal</span>
               </div>
               <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -100,15 +100,15 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
                   <span>Add Bathroom (₹799)</span>
                 </button>
               ) : (
-                <div className="flex items-center gap-3 bg-pink-50 p-2.5 rounded-2xl border border-pink-200 shadow-sm w-full sm:w-auto justify-between sm:justify-start">
-                  <span className="text-xs font-extrabold text-pink-900 uppercase tracking-wider pl-1">
+                <div className="flex items-center gap-3 bg-slate-100 p-2.5 rounded-2xl border border-slate-300 shadow-sm w-full sm:w-auto justify-between sm:justify-start">
+                  <span className="text-xs font-extrabold text-slate-900 uppercase tracking-wider pl-1">
                     Units:
                   </span>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleDecrement}
-                      className="w-9 h-9 rounded-[8px] bg-white border border-pink-200 hover:bg-pink-100 text-pink-700 font-black flex items-center justify-center transition-colors text-lg shadow-sm cursor-pointer"
+                      className="w-9 h-9 rounded-[8px] bg-white border border-slate-300 hover:bg-slate-200 text-slate-800 font-black flex items-center justify-center transition-colors text-lg shadow-sm cursor-pointer"
                     >
                       -
                     </button>
@@ -132,7 +132,7 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
           {/* Service Process Explanation */}
           <div className="space-y-3">
             <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-              <Info className="w-4 h-4 text-pink-600" />
+              <Info className="w-4 h-4 text-black" />
               <span>How Our Deep Bathroom Cleaning Works</span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
@@ -152,7 +152,7 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
                   key={idx}
                   className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3"
                 >
-                  <div className="p-1 rounded bg-pink-100 text-pink-600 shrink-0 mt-0.5">
+                  <div className="p-1 rounded bg-black text-white shrink-0 mt-0.5">
                     <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
                   <span className="text-xs sm:text-sm text-slate-700 font-semibold leading-relaxed">
@@ -164,9 +164,9 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
           </div>
 
           {/* Discount Banner */}
-          <div className="p-4 rounded-2xl bg-pink-50 border border-pink-200 flex items-center gap-3">
-            <ShieldCheck className="w-5 h-5 text-pink-600 shrink-0" />
-            <p className="text-xs text-pink-900 font-bold">
+          <div className="p-4 rounded-2xl bg-slate-100 border border-slate-300 flex items-center gap-3">
+            <ShieldCheck className="w-5 h-5 text-black shrink-0" />
+            <p className="text-xs text-slate-900 font-bold">
               Multi-Bathroom Savings: Book 2 or more bathrooms and enjoy automatic discounted pricing at ₹699 per bathroom (save ₹100/unit!).
             </p>
           </div>
@@ -174,15 +174,15 @@ export const BathroomDetailView: React.FC<BathroomDetailViewProps> = ({
       </div>
 
       {/* 3. Cross-sell Footer */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 text-white shadow-xl shadow-pink-500/20 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-950 text-white shadow-xl shadow-black/20 flex flex-col sm:flex-row items-center justify-between gap-6 border border-slate-700">
         <div className="space-y-1 text-center sm:text-left">
-          <span className="text-xs font-black uppercase tracking-widest text-pink-100">
+          <span className="text-xs font-black uppercase tracking-widest text-slate-300">
             Complete Your Home Care
           </span>
           <h3 className="text-xl sm:text-2xl font-black text-white">
             Need Kitchen Cleaning too?
           </h3>
-          <p className="text-xs text-pink-100 font-medium">
+          <p className="text-xs text-slate-300 font-medium">
             Get 100°C thermal steam degreasing & heavy oil removal for your kitchen.
           </p>
         </div>
