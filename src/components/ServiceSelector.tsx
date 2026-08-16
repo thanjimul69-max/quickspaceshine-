@@ -49,7 +49,7 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
   };
 
   return (
-    <section id="services" className="py-8 sm:py-12 lg:py-16 bg-white relative overflow-hidden border-t border-slate-200">
+    <section id="services" className="pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 bg-white relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-slate-200/40 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-300/20 blur-[120px] rounded-full pointer-events-none" />

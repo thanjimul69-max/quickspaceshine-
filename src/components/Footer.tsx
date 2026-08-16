@@ -127,14 +127,6 @@ export const Footer: React.FC<FooterProps> = ({ onScrollToSection }) => {
                 <MessageSquare className="w-4 h-4 fill-white text-[#5337E1]" />
                 <span>WhatsApp: +91 9854905077</span>
               </a>
-
-              <a
-                href="tel:+919854905077"
-                className="flex items-center justify-center gap-2 py-3 px-6 rounded-[8px] bg-slate-100 border border-slate-200 text-slate-800 font-bold hover:bg-slate-200 transition-all"
-              >
-                <Phone className="w-4 h-4 text-[#5337E1]" />
-                <span>Direct Phone: +91 9854905077</span>
-              </a>
             </div>
           </div>
 

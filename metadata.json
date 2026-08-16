@@ -1,6 +1,6 @@
 {
   "name": "Quick Space Shine",
-  "description": "Premium, futuristic home cleaning booking app for Quick Space Shine (QSS) serving Chennai with instant pincode verification, live GPS location detection, and WhatsApp booking.",
+  "description": "Premium home cleaning booking app for Quick Space Shine (QSS) serving Chennai with instant pincode verification, live GPS location detection, Supabase database bookings, and WhatsApp support.",
   "requestFramePermissions": [
     "geolocation"
   ],

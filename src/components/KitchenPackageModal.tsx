@@ -19,40 +19,35 @@ export const KitchenPackageModal: React.FC<KitchenPackageModalProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4 overflow-x-hidden">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 overflow-x-hidden">
           {/* Dark Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs"
           />
 
-          {/* Slide-Up Bottom Sheet / Modal Panel */}
+          {/* Compact Modal Panel (Centered & Sized to Fit Both Packages On-Screen) */}
           <motion.div
-            initial={{ y: '100%', opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: '100%', opacity: 0 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-            className="relative w-full sm:w-[94vw] max-w-3xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col z-10 mx-auto"
+            initial={{ scale: 0.95, opacity: 0, y: 12 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 12 }}
+            transition={{ type: 'spring', damping: 26, stiffness: 300 }}
+            className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col z-10 mx-auto"
           >
-            {/* Handle Drag Bar (Urban Company Mobile style) */}
-            <div className="pt-3 pb-1 flex justify-center sm:hidden">
-              <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
-            </div>
-
             {/* Modal Header */}
-            <div className="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/90 shrink-0 gap-2">
+            <div className="px-4 py-3 sm:px-5 sm:py-3.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/90 shrink-0 gap-2">
               <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                <div className="p-2 sm:p-2.5 rounded-2xl bg-black text-white shrink-0">
-                  <Flame className="w-4 h-4 sm:w-5 sm:h-5" />
+                <div className="p-1.5 sm:p-2 rounded-xl bg-black text-white shrink-0">
+                  <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h3 className="text-base sm:text-xl font-black text-slate-900 truncate">
+                  <h3 className="text-sm sm:text-base font-black text-slate-900 truncate">
                     Select Kitchen Package
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-500 font-medium truncate">
+                  <p className="text-[10px] sm:text-xs text-slate-500 font-medium truncate">
                     Choose standard exterior or complete deep cleaning
                   </p>
                 </div>
@@ -60,126 +55,114 @@ export const KitchenPackageModal: React.FC<KitchenPackageModalProps> = ({
 
               <button
                 onClick={onClose}
-                className="p-1.5 sm:p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-200/80 transition-colors cursor-pointer shrink-0"
+                className="p-1 sm:p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-200/80 transition-colors cursor-pointer shrink-0"
                 aria-label="Close modal"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
 
-            {/* Modal Content - Two Package Options (Horizontally Scrollable Side-by-Side Cards) */}
-            <div className="p-3.5 sm:p-6 overflow-y-auto space-y-4 sm:space-y-6">
-              
-              <div className="flex items-center justify-between text-xs text-slate-500 font-medium px-1">
-                <span className="font-semibold text-slate-700">Compare packages:</span>
-                <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold text-black bg-slate-100 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-slate-300">
-                  Swipe horizontally &rarr;
-                </span>
-              </div>
+            {/* Modal Content - Vertically Stacked Compact Package Cards */}
+            <div className="p-3 sm:p-4 space-y-2.5 sm:space-y-3">
+              {KITCHEN_PACKAGES.map((pkg: KitchenPackageOption) => {
+                const isSelected = selectedPackageId === pkg.id;
+                const isComplete = pkg.id === 'complete';
 
-              {/* Side-by-Side Horizontal Scroll Container */}
-              <div
-                className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory py-2 px-1 no-scrollbar scroll-smooth w-full"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-              >
-                {KITCHEN_PACKAGES.map((pkg: KitchenPackageOption) => {
-                  const isSelected = selectedPackageId === pkg.id;
-                  const isComplete = pkg.id === 'complete';
-
-                  return (
-                    <div
-                      key={pkg.id}
-                      className={`min-w-[80vw] sm:min-w-[300px] md:min-w-[320px] max-w-[340px] flex-1 flex-shrink-0 snap-center sm:snap-start relative rounded-2xl p-4 sm:p-5 border-2 transition-all flex flex-col justify-between gap-4 sm:gap-5 ${
-                        isSelected
-                          ? 'bg-slate-50 border-black shadow-xl shadow-black/10 ring-2 ring-black/20'
-                          : isComplete
-                          ? 'bg-white border-slate-300 hover:border-black shadow-md'
-                          : 'bg-white border-slate-200 hover:border-slate-400 shadow-sm'
-                      }`}
-                    >
-                      {/* Top Header & Badge */}
-                      <div className="space-y-2.5 sm:space-y-3">
-                        <div className="flex items-center justify-between gap-2">
+                return (
+                  <div
+                    key={pkg.id}
+                    className={`w-full rounded-xl sm:rounded-2xl p-3 sm:p-3.5 border-2 transition-all flex flex-col justify-between gap-2.5 ${
+                      isSelected
+                        ? 'bg-slate-50/90 border-black shadow-md ring-1 ring-black/15'
+                        : isComplete
+                        ? 'bg-white border-slate-300 hover:border-black shadow-xs'
+                        : 'bg-white border-slate-200 hover:border-slate-400 shadow-xs'
+                    }`}
+                  >
+                    {/* Header Row: Badge, Title & Price */}
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-1 min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <span
-                            className={`px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider ${
+                            className={`px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wider ${
                               isComplete
-                                ? 'bg-black text-white shadow-sm'
+                                ? 'bg-black text-white'
                                 : 'bg-slate-100 text-slate-700 border border-slate-200'
                             }`}
                           >
                             {pkg.badge}
                           </span>
                           {isSelected && (
-                            <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-black text-black bg-slate-200 px-2 py-0.5 rounded-full">
-                              <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3]" /> Active
+                            <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-black text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded-full">
+                              <Check className="w-2.5 h-2.5 stroke-[3]" /> Selected
                             </span>
                           )}
                         </div>
-
-                        <div>
-                          <h4 className="text-base sm:text-lg font-black text-slate-900 leading-snug">
-                            {pkg.title}
-                          </h4>
-                          <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5">
-                            {pkg.subtitle}
-                          </p>
-                        </div>
-
-                        <div className="pt-1 flex items-baseline gap-1.5">
-                          <span className="text-2xl sm:text-3xl font-black text-black">
-                            ₹{pkg.price.toLocaleString('en-IN')}
-                          </span>
-                          <span className="text-[10px] sm:text-xs text-slate-400 font-medium">inclusive of taxes</span>
-                        </div>
+                        <h4 className="text-xs sm:text-sm font-black text-slate-900 leading-snug">
+                          {pkg.title}
+                        </h4>
+                        <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium line-clamp-1">
+                          {pkg.subtitle}
+                        </p>
                       </div>
 
-                      {/* Inclusions List */}
-                      <div className="space-y-2 pt-3 border-t border-slate-100">
-                        <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-slate-400">
-                          Package Includes:
+                      {/* Price on the right */}
+                      <div className="text-right shrink-0">
+                        <div className="text-lg sm:text-xl font-black text-black leading-none">
+                          ₹{pkg.price.toLocaleString('en-IN')}
+                        </div>
+                        <span className="text-[9px] sm:text-[10px] text-slate-400 font-semibold block mt-0.5">
+                          all inclusive
                         </span>
-                        <ul className="space-y-1.5 sm:space-y-2">
-                          {pkg.inclusions.map((inclusion, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-[11px] sm:text-xs font-semibold text-slate-700">
-                              <div className="p-0.5 rounded-full bg-emerald-100 text-emerald-700 shrink-0 mt-0.5">
-                                <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]" />
-                              </div>
-                              <span className="leading-snug">{inclusion}</span>
-                            </li>
-                          ))}
-                        </ul>
                       </div>
+                    </div>
 
-                      {/* Action Button */}
+                    {/* Features Grid: 2-column compact checklist */}
+                    <div className="grid grid-cols-1 xs:grid-cols-2 gap-x-3 gap-y-1 pt-1.5 border-t border-slate-100 text-[10px] sm:text-[11px]">
+                      {pkg.inclusions.slice(0, 4).map((inclusion, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5 font-semibold text-slate-700 min-w-0">
+                          <div className="p-0.5 rounded-full bg-emerald-100 text-emerald-700 shrink-0">
+                            <Check className="w-2.5 h-2.5 stroke-[3]" />
+                          </div>
+                          <span className="truncate leading-tight">{inclusion}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Action Row */}
+                    <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-100/80">
+                      <span className="text-[10px] text-slate-400 font-semibold flex items-center gap-1">
+                        <ShieldCheck className="w-3 h-3 text-emerald-600 shrink-0" />
+                        <span>100°C Steam degreasing included</span>
+                      </span>
+
                       <button
                         onClick={() => {
                           onSelectPackage(pkg.id);
                           onClose();
                         }}
-                        className={`w-full py-3 sm:py-3.5 px-6 rounded-[8px] font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95 ${
+                        className={`py-1.5 px-3.5 sm:px-4 rounded-lg font-black text-[10px] sm:text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 shadow-xs active:scale-95 ${
                           isSelected
-                            ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/25 ring-2 ring-emerald-400/30'
-                            : 'bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-[#5337E1]/25 hover:scale-[1.02]'
+                            ? 'bg-emerald-600 hover:bg-emerald-500 text-white'
+                            : 'bg-[#5337E1] hover:bg-[#462ec4] text-white hover:scale-[1.02]'
                         }`}
                       >
-                        <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        <Sparkles className="w-3 h-3" />
                         <span>
                           {isSelected
-                            ? 'Selected Package'
-                            : `Select Package (₹${pkg.price.toLocaleString('en-IN')})`}
+                            ? 'Active Selection'
+                            : `Select Package`}
                         </span>
                       </button>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
 
-              {/* Security & Guarantee Note */}
-              <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2.5 text-slate-600 text-[11px] sm:text-xs font-medium">
-                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" />
-                <span>
-                  Both packages include 100°C steam tech, eco-friendly chemicals, and a 100% satisfaction guarantee.
-                </span>
+              {/* Bottom Guarantee Note */}
+              <div className="py-1 px-3 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-center gap-1.5 text-slate-500 text-[10px] font-medium text-center">
+                <ShieldCheck className="w-3 h-3 text-emerald-600 shrink-0" />
+                <span>100% Satisfaction Guarantee • Verified Professional Technicians</span>
               </div>
             </div>
           </motion.div>

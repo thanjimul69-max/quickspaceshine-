@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ToastMessage } from './types';
 import { checkPincodeAvailability } from './data/pincodes';
-import { getKitchenPackage } from './data/services';
+import { getKitchenPackage, APPLIANCE_OPTIONS } from './data/services';
 import { ToastContainer } from './components/Toast';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -19,6 +19,12 @@ import { KitchenPackageModal } from './components/KitchenPackageModal';
 import { BathroomPackageModal } from './components/BathroomPackageModal';
 import { KitchenDetailView } from './components/KitchenDetailView';
 import { BathroomDetailView } from './components/BathroomDetailView';
+
+interface AppHistoryState {
+  page: 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking';
+  kitchenStep: 1 | 2 | 3;
+  modal: 'kitchen' | 'bathroom' | 'pincode' | null;
+}
 
 export default function App() {
   // Navigation View State ('home' | 'kitchenDetail' | 'bathroomDetail' | 'booking')
@@ -41,6 +47,42 @@ export default function App() {
   const [pincodeModalOpen, setPincodeModalOpen] = useState(false);
   const [modalCheckCode, setModalCheckCode] = useState('');
 
+  // 1. Initialize History State on Mount & Register popstate Listener
+  useEffect(() => {
+    // Ensure the initial history entry has our structured state
+    const initialState: AppHistoryState = {
+      page: 'home',
+      kitchenStep: 1,
+      modal: null,
+    };
+
+    if (!window.history.state || !window.history.state.page) {
+      window.history.replaceState(initialState, '');
+    }
+
+    const handlePopState = (event: PopStateEvent) => {
+      const state: AppHistoryState | null = event.state;
+      if (state) {
+        setCurrentPage(state.page || 'home');
+        setKitchenStep(state.kitchenStep || 1);
+        setIsKitchenModalOpen(state.modal === 'kitchen');
+        setIsBathroomModalOpen(state.modal === 'bathroom');
+        setPincodeModalOpen(state.modal === 'pincode');
+      } else {
+        // Fallback if state is empty: gracefully revert to safe Home state without exiting site
+        setCurrentPage('home');
+        setKitchenStep(1);
+        setIsKitchenModalOpen(false);
+        setIsBathroomModalOpen(false);
+        setPincodeModalOpen(false);
+        window.history.replaceState(initialState, '');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const showToast = (message: string, type: 'warning' | 'info' | 'error' | 'success' = 'info') => {
     const newToast: ToastMessage = {
       id: Date.now().toString() + Math.random().toString(),
@@ -58,14 +100,97 @@ export default function App() {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
-  // View Navigation Handler
-  const handleNavigate = (view: 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking') => {
+  // View Navigation Handler with History Push
+  const handleNavigate = useCallback((view: 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking') => {
+    const nextStep: 1 | 2 | 3 = view === 'kitchenDetail' && currentPage !== 'kitchenDetail' ? 1 : kitchenStep;
+    
+    // Close any open modals
+    setIsKitchenModalOpen(false);
+    setIsBathroomModalOpen(false);
+    setPincodeModalOpen(false);
+
     if (view === 'kitchenDetail' && currentPage !== 'kitchenDetail') {
       setKitchenStep(1);
     }
     setCurrentPage(view);
+
+    // Push new history state
+    const nextState: AppHistoryState = {
+      page: view,
+      kitchenStep: nextStep,
+      modal: null,
+    };
+    window.history.pushState(nextState, '');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, [currentPage, kitchenStep]);
+
+  // Kitchen Step Change with History Push
+  const handleKitchenStepChange = useCallback((step: 1 | 2 | 3) => {
+    setKitchenStep(step);
+    const nextState: AppHistoryState = {
+      page: 'kitchenDetail',
+      kitchenStep: step,
+      modal: null,
+    };
+    window.history.pushState(nextState, '');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  // Modal Open Handlers with History Push
+  const handleOpenKitchenModal = useCallback(() => {
+    setIsKitchenModalOpen(true);
+    const nextState: AppHistoryState = {
+      page: currentPage,
+      kitchenStep,
+      modal: 'kitchen',
+    };
+    window.history.pushState(nextState, '');
+  }, [currentPage, kitchenStep]);
+
+  const handleCloseKitchenModal = useCallback(() => {
+    if (window.history.state?.modal === 'kitchen') {
+      window.history.back();
+    } else {
+      setIsKitchenModalOpen(false);
+    }
+  }, []);
+
+  const handleOpenBathroomModal = useCallback(() => {
+    setIsBathroomModalOpen(true);
+    const nextState: AppHistoryState = {
+      page: currentPage,
+      kitchenStep,
+      modal: 'bathroom',
+    };
+    window.history.pushState(nextState, '');
+  }, [currentPage, kitchenStep]);
+
+  const handleCloseBathroomModal = useCallback(() => {
+    if (window.history.state?.modal === 'bathroom') {
+      window.history.back();
+    } else {
+      setIsBathroomModalOpen(false);
+    }
+  }, []);
+
+  const handleOpenPincodeModal = useCallback((code?: string) => {
+    if (code) setModalCheckCode(code);
+    setPincodeModalOpen(true);
+    const nextState: AppHistoryState = {
+      page: currentPage,
+      kitchenStep,
+      modal: 'pincode',
+    };
+    window.history.pushState(nextState, '');
+  }, [currentPage, kitchenStep]);
+
+  const handleClosePincodeModal = useCallback(() => {
+    if (window.history.state?.modal === 'pincode') {
+      window.history.back();
+    } else {
+      setPincodeModalOpen(false);
+    }
+  }, []);
 
   // Verify Pincode handler
   const handleVerifyPincode = (code: string) => {
@@ -75,8 +200,7 @@ export default function App() {
       setVerifiedArea(res.area);
       showToast(`Service is available in ${res.area} (${res.code})!`, 'success');
     } else {
-      setModalCheckCode(code);
-      setPincodeModalOpen(true);
+      handleOpenPincodeModal(code);
     }
   };
 
@@ -98,6 +222,13 @@ export default function App() {
       setIsKitchenModalOpen(false);
       setKitchenStep(1);
       setCurrentPage('kitchenDetail');
+
+      const nextState: AppHistoryState = {
+        page: 'kitchenDetail',
+        kitchenStep: 1,
+        modal: null,
+      };
+      window.history.pushState(nextState, '');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -107,24 +238,36 @@ export default function App() {
     if (!selected) {
       handleSelectKitchenPackage(null);
     } else {
-      setIsKitchenModalOpen(true);
+      handleOpenKitchenModal();
     }
   };
 
   // Toggle Appliance Add-on with Rule Enforcement
   const handleToggleAppliance = (applianceId: string) => {
     if (!kitchenPackageId) {
-      setIsKitchenModalOpen(true);
+      handleOpenKitchenModal();
       showToast('Please select a Kitchen Package first before adding extra appliance care.', 'info');
       return;
     }
 
+    const appliance = APPLIANCE_OPTIONS.find((a) => a.id === applianceId);
+    const applianceName = appliance ? appliance.name : 'Appliance add-on';
+
     if (selectedAppliances.includes(applianceId)) {
       setSelectedAppliances((prev) => prev.filter((id) => id !== applianceId));
+      showToast(`${applianceName} removed from booking`, 'info');
     } else {
       setSelectedAppliances((prev) => [...prev, applianceId]);
-      showToast('Appliance add-on added to your booking!', 'success');
+      showToast(`${applianceName} added to booking!`, 'success');
     }
+  };
+
+  // Clear Cart Helper
+  const handleClearCart = () => {
+    setKitchenPackageId(null);
+    setSelectedAppliances([]);
+    setBathroomCount(0);
+    showToast('Cart cleared', 'info');
   };
 
   // Scroll Helper
@@ -134,7 +277,7 @@ export default function App() {
       return;
     }
     if (currentPage !== 'home') {
-      setCurrentPage('home');
+      handleNavigate('home');
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -158,6 +301,7 @@ export default function App() {
         onOpenPincodeChecker={() => handleVerifyPincode(pincode || '600032')}
         onScrollToSection={scrollToSection}
         onNavigate={handleNavigate}
+        currentPage={currentPage}
       />
 
       {/* Main Content Area */}
@@ -172,7 +316,7 @@ export default function App() {
               onVerifyPincode={handleVerifyPincode}
               onScrollToSection={scrollToSection}
               onNavigate={handleNavigate}
-              onOpenKitchenModal={() => setIsKitchenModalOpen(true)}
+              onOpenKitchenModal={handleOpenKitchenModal}
             />
 
             {/* Primary Service Cards ("Complete Kitchen Cleaning" and "Bathroom Cleaning") */}
@@ -183,8 +327,8 @@ export default function App() {
               bathroomCount={bathroomCount}
               onToggleKitchen={handleToggleKitchen}
               onSelectKitchenPackage={handleSelectKitchenPackage}
-              onOpenKitchenModal={() => setIsKitchenModalOpen(true)}
-              onOpenBathroomModal={() => setIsBathroomModalOpen(true)}
+              onOpenKitchenModal={handleOpenKitchenModal}
+              onOpenBathroomModal={handleOpenBathroomModal}
               onToggleAppliance={handleToggleAppliance}
               onChangeBathroomCount={setBathroomCount}
               onShowToast={showToast}
@@ -203,10 +347,10 @@ export default function App() {
         )}
 
         {currentPage === 'booking' && (
-          <div className="min-h-[80vh] py-8 bg-slate-50">
+          <div className="min-h-[80vh] pt-20 sm:pt-24 pb-12 bg-slate-50">
             <div className="max-w-4xl mx-auto px-4 mb-6">
               <button
-                onClick={() => setCurrentPage('home')}
+                onClick={() => handleNavigate('home')}
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-800 font-extrabold text-xs uppercase tracking-wider hover:bg-slate-100 transition-all shadow-sm cursor-pointer"
               >
                 <span>&larr; Back to Cleaning Services</span>
@@ -221,10 +365,7 @@ export default function App() {
               selectedAppliances={selectedAppliances}
               bathroomCount={bathroomCount}
               onPincodeCheck={handleVerifyPincode}
-              onOpenPincodeModal={(code) => {
-                setModalCheckCode(code);
-                setPincodeModalOpen(true);
-              }}
+              onOpenPincodeModal={(code) => handleOpenPincodeModal(code)}
               onShowToast={showToast}
             />
           </div>
@@ -236,9 +377,9 @@ export default function App() {
             kitchenPackageId={kitchenPackageId}
             selectedAppliances={selectedAppliances}
             currentStep={kitchenStep}
-            onStepChange={setKitchenStep}
+            onStepChange={handleKitchenStepChange}
             onToggleKitchen={handleToggleKitchen}
-            onOpenKitchenModal={() => setIsKitchenModalOpen(true)}
+            onOpenKitchenModal={handleOpenKitchenModal}
             onSelectKitchenPackage={handleSelectKitchenPackage}
             onToggleAppliance={handleToggleAppliance}
             onNavigate={handleNavigate}
@@ -269,15 +410,17 @@ export default function App() {
         bathroomCount={bathroomCount}
         currentPage={currentPage}
         kitchenStep={kitchenStep}
-        onKitchenStepChange={setKitchenStep}
+        onKitchenStepChange={handleKitchenStepChange}
         onScrollToBooking={() => handleNavigate('booking')}
+        onNavigate={handleNavigate}
+        onClearCart={handleClearCart}
       />
 
       {/* Unserviced Pincode Modal */}
       <PincodeModal
         isOpen={pincodeModalOpen}
         pincode={modalCheckCode}
-        onClose={() => setPincodeModalOpen(false)}
+        onClose={handleClosePincodeModal}
         onShowToast={showToast}
       />
 
@@ -285,7 +428,7 @@ export default function App() {
       <KitchenPackageModal
         isOpen={isKitchenModalOpen}
         selectedPackageId={kitchenPackageId}
-        onClose={() => setIsKitchenModalOpen(false)}
+        onClose={handleCloseKitchenModal}
         onSelectPackage={handleSelectKitchenPackage}
       />
 
@@ -293,7 +436,7 @@ export default function App() {
       <BathroomPackageModal
         isOpen={isBathroomModalOpen}
         bathroomCount={bathroomCount}
-        onClose={() => setIsBathroomModalOpen(false)}
+        onClose={handleCloseBathroomModal}
         onChangeBathroomCount={setBathroomCount}
         onProceedToBooking={() => handleNavigate('booking')}
         onShowToast={showToast}
@@ -302,4 +445,5 @@ export default function App() {
     </div>
   );
 }
+
 

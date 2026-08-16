@@ -107,35 +107,35 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      className="min-h-screen bg-slate-50/60 pb-32 pt-3 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-6"
+      className="min-h-screen bg-slate-50/60 pb-32 pt-20 sm:pt-24 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-6"
     >
       {/* 1. Header with Dynamic Back Navigation & Stepper */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between gap-3">
-          {/* Back Button */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between gap-2">
+          {/* Compact Back Button */}
           {activeStep === 1 ? (
             <button
               onClick={() => onNavigate('home')}
-              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-[8px] bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-[#5337E1] font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-black hover:border-slate-300 font-bold text-xs shadow-2xs transition-all active:scale-95 cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-[#5337E1] stroke-[2.5]" />
+              <ArrowLeft className="w-3.5 h-3.5 text-slate-700 stroke-[2.5]" />
               <span>Back to Home</span>
             </button>
           ) : activeStep === 2 ? (
             <button
               onClick={() => setStep(1)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-[8px] bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-[#5337E1] font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-black hover:border-slate-300 font-bold text-xs shadow-2xs transition-all active:scale-95 cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-[#5337E1] stroke-[2.5]" />
-              <span>Back to Service Details</span>
+              <ArrowLeft className="w-3.5 h-3.5 text-slate-700 stroke-[2.5]" />
+              <span>Back to Details</span>
             </button>
           ) : (
             <button
               onClick={() => setStep(2)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-[8px] bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-[#5337E1] font-bold text-xs sm:text-sm shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-black hover:border-slate-300 font-bold text-xs shadow-2xs transition-all active:scale-95 cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-[#5337E1] stroke-[2.5]" />
-              <span>Back to Add Appliances</span>
+              <ArrowLeft className="w-3.5 h-3.5 text-slate-700 stroke-[2.5]" />
+              <span>Back to Appliances</span>
             </button>
           )}
 
@@ -144,108 +144,113 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
             {activePkg && (
               <button
                 onClick={handleOpenModal}
-                className="px-3 py-2 rounded-[8px] font-bold text-xs uppercase tracking-wider bg-white border border-slate-200 text-slate-700 hover:text-[#5337E1] hover:border-[#5337E1] transition-all shadow-sm cursor-pointer"
+                className="px-2.5 py-1.5 rounded-lg font-bold text-[11px] uppercase tracking-wider bg-white border border-slate-200 text-slate-700 hover:text-black hover:border-slate-300 transition-all shadow-2xs cursor-pointer"
               >
                 Change Package
               </button>
             )}
-            <span className="hidden sm:inline-flex px-3 py-1 rounded-full bg-slate-100 border border-slate-300 text-slate-900 text-xs font-extrabold uppercase tracking-wider">
+            <span className="hidden sm:inline-flex px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-[11px] font-extrabold uppercase tracking-wider">
               {activePkg ? activePkg.title : 'Kitchen Service'}
             </span>
           </div>
         </div>
 
-        {/* 3-Step Progress Stepper */}
-        <div className="p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-          <div className="grid grid-cols-3 gap-2 sm:gap-4">
-            {/* Step 1 Tab */}
+        {/* Minimal 3-Step Horizontal Progress Bar */}
+        <div className="w-full max-w-lg mx-auto py-2 px-3 select-none">
+          <div className="flex items-center justify-between">
+            {/* Step 1 */}
             <button
               onClick={() => setStep(1)}
-              className={`flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-2 rounded-xl text-left transition-all cursor-pointer ${
-                activeStep === 1
-                  ? 'bg-slate-100 border border-slate-400 text-black shadow-xs'
-                  : activeStep > 1
-                  ? 'bg-emerald-50/60 border border-emerald-200 text-emerald-700 hover:bg-slate-100'
-                  : 'text-slate-400'
-              }`}
+              className="flex flex-col items-center text-center cursor-pointer group shrink-0 w-24 sm:w-28"
             >
               <div
-                className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
-                  activeStep === 1
-                    ? 'bg-black text-white'
-                    : activeStep > 1
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-slate-200 text-slate-600'
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-black transition-all ${
+                  activeStep > 1
+                    ? 'bg-emerald-600 text-white shadow-xs'
+                    : activeStep === 1
+                    ? 'bg-black text-white ring-4 ring-black/10'
+                    : 'bg-white border-2 border-slate-300 text-slate-400'
                 }`}
               >
                 {activeStep > 1 ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : '1'}
               </div>
-              <div className="text-center sm:text-left">
-                <span className="block text-[10px] font-bold uppercase tracking-wider opacity-75">
-                  Step 1
-                </span>
-                <span className="text-xs sm:text-sm font-black truncate block">
-                  Service Details
-                </span>
-              </div>
+              <span
+                className={`text-[10px] sm:text-[11px] mt-1.5 font-bold transition-colors line-clamp-1 ${
+                  activeStep > 1
+                    ? 'text-emerald-700 font-extrabold'
+                    : activeStep === 1
+                    ? 'text-slate-900 font-black'
+                    : 'text-slate-400'
+                }`}
+              >
+                Job Details
+              </span>
             </button>
 
-            {/* Step 2 Tab */}
+            {/* Connecting Line 1 -> 2 */}
+            <div
+              className={`flex-1 h-[2px] mx-1 sm:mx-2 -mt-5 transition-colors duration-300 ${
+                activeStep > 1 ? 'bg-emerald-500' : 'bg-slate-200'
+              }`}
+            />
+
+            {/* Step 2 */}
             <button
               onClick={() => setStep(2)}
-              className={`flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-2 rounded-xl text-left transition-all cursor-pointer ${
-                activeStep === 2
-                  ? 'bg-slate-100 border border-slate-400 text-black shadow-xs'
-                  : activeStep > 2
-                  ? 'bg-emerald-50/60 border border-emerald-200 text-emerald-700 hover:bg-slate-100'
-                  : 'text-slate-400 hover:bg-slate-50'
-              }`}
+              className="flex flex-col items-center text-center cursor-pointer group shrink-0 w-24 sm:w-28"
             >
               <div
-                className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
-                  activeStep === 2
-                    ? 'bg-black text-white'
-                    : activeStep > 2
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-slate-200 text-slate-600'
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-black transition-all ${
+                  activeStep > 2
+                    ? 'bg-emerald-600 text-white shadow-xs'
+                    : activeStep === 2
+                    ? 'bg-black text-white ring-4 ring-black/10'
+                    : 'bg-white border-2 border-slate-300 text-slate-400'
                 }`}
               >
                 {activeStep > 2 ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : '2'}
               </div>
-              <div className="text-center sm:text-left">
-                <span className="block text-[10px] font-bold uppercase tracking-wider opacity-75">
-                  Step 2
-                </span>
-                <span className="text-xs sm:text-sm font-black truncate block">
-                  Add Appliances
-                </span>
-              </div>
+              <span
+                className={`text-[10px] sm:text-[11px] mt-1.5 font-bold transition-colors line-clamp-1 ${
+                  activeStep > 2
+                    ? 'text-emerald-700 font-extrabold'
+                    : activeStep === 2
+                    ? 'text-slate-900 font-black'
+                    : 'text-slate-400'
+                }`}
+              >
+                Add Appliances
+              </span>
             </button>
 
-            {/* Step 3 Tab */}
+            {/* Connecting Line 2 -> 3 */}
+            <div
+              className={`flex-1 h-[2px] mx-1 sm:mx-2 -mt-5 transition-colors duration-300 ${
+                activeStep > 2 ? 'bg-emerald-500' : 'bg-slate-200'
+              }`}
+            />
+
+            {/* Step 3 */}
             <button
               onClick={() => setStep(3)}
-              className={`flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 p-2 rounded-xl text-left transition-all cursor-pointer ${
-                activeStep === 3
-                  ? 'bg-slate-100 border border-slate-400 text-black shadow-xs'
-                  : 'text-slate-400 hover:bg-slate-50'
-              }`}
+              className="flex flex-col items-center text-center cursor-pointer group shrink-0 w-24 sm:w-28"
             >
               <div
-                className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
-                  activeStep === 3 ? 'bg-black text-white' : 'bg-slate-200 text-slate-600'
+                className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-black transition-all ${
+                  activeStep === 3
+                    ? 'bg-black text-white ring-4 ring-black/10'
+                    : 'bg-white border-2 border-slate-300 text-slate-400'
                 }`}
               >
                 3
               </div>
-              <div className="text-center sm:text-left">
-                <span className="block text-[10px] font-bold uppercase tracking-wider opacity-75">
-                  Step 3
-                </span>
-                <span className="text-xs sm:text-sm font-black truncate block">
-                  Summary & Book
-                </span>
-              </div>
+              <span
+                className={`text-[10px] sm:text-[11px] mt-1.5 font-bold transition-colors line-clamp-1 ${
+                  activeStep === 3 ? 'text-slate-900 font-black' : 'text-slate-400'
+                }`}
+              >
+                Order Summary
+              </span>
             </button>
           </div>
         </div>
@@ -335,16 +340,16 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                   />
                 </div>
 
-                {/* Primary Action Button: "CONTINUE TO ADD APPLIANCES" */}
+                {/* Primary Action Button: "View Cart" */}
                 <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-xs text-slate-500 font-medium text-center sm:text-left">
                     Step 1 of 3: Next you can choose optional appliance deep cleaning add-ons.
                   </div>
                   <button
                     onClick={() => setStep(2)}
-                    className="w-full sm:w-auto px-8 py-4 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-[#5337E1]/25 hover:shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[#5337E1] hover:bg-[#462ec4] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md shadow-[#5337E1]/20 hover:shadow-lg transition-all hover:scale-[1.02] active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>Continue to Add Appliances</span>
+                    <span>View Cart</span>
                     <ArrowRight className="w-4 h-4 stroke-[3]" />
                   </button>
                 </div>
@@ -386,54 +391,52 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -10 }}
             transition={{ duration: 0.2 }}
-            className="space-y-6"
+            className="space-y-4"
           >
-            <div className="rounded-3xl p-1 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-50 shadow-xl">
-              <div className="rounded-[22px] bg-white border border-slate-200 p-4 sm:p-7 space-y-6">
-                
-                {/* Section Header with Skip Button */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-                  <div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-900 border border-slate-300 text-xs font-extrabold uppercase tracking-wider mb-2">
-                      <Sparkles className="w-3.5 h-3.5 text-black" />
-                      <span>Appliance Care Add-ons (Optional)</span>
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                      Add Appliances for Deep Cleaning
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
-                      Professional internal wash, degreasing & anti-bacterial sanitization.
-                    </p>
-                  </div>
-
-                  {/* Skip or Proceed Button */}
-                  <button
-                    onClick={() => setStep(3)}
-                    className="self-start sm:self-auto px-5 py-2.5 rounded-[8px] text-xs font-extrabold uppercase tracking-wider bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm"
-                  >
-                    <span>{selectedAppliances.length > 0 ? 'Skip to Summary' : 'Skip Add-ons'}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+            <div className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200 p-4 sm:p-6 shadow-sm space-y-4 sm:space-y-5">
+              
+              {/* Minimal Header with Compact Skip Button Aligned to Right */}
+              <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+                <div className="min-w-0">
+                  <h3 className="text-sm sm:text-base font-black text-slate-900 tracking-tight flex items-center gap-1.5">
+                    <span>Add Appliances for Deep Cleaning</span>
+                    <span className="text-[11px] text-slate-400 font-semibold hidden xs:inline">(Optional)</span>
+                  </h3>
+                  <p className="text-[10px] sm:text-xs text-slate-500 font-medium truncate">
+                    Internal wash, degreasing & anti-bacterial sanitization
+                  </p>
                 </div>
 
-                {/* Compact Vertical List Layout for Mobile & Desktop */}
-                <div className="space-y-3 sm:space-y-4">
-                  {APPLIANCE_OPTIONS.map((appliance) => {
-                    const isSelected = selectedAppliances.includes(appliance.id);
-                    const isMicrowave = appliance.id === 'microwave';
+                {/* Compact Text/Link Skip Button */}
+                <button
+                  onClick={() => setStep(3)}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-slate-600 hover:text-black hover:bg-slate-100 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white transition-colors cursor-pointer shrink-0 shadow-2xs"
+                >
+                  <span>{selectedAppliances.length > 0 ? 'Skip to Summary' : 'Skip Add-ons'}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
 
-                    return (
-                      <div
-                        key={appliance.id}
-                        onClick={() => handleAddClick(appliance.id)}
-                        className={`group relative rounded-2xl p-3 sm:p-4 border-2 transition-all cursor-pointer select-none flex items-center justify-between gap-3 sm:gap-4 ${
-                          isSelected
-                            ? 'bg-slate-100 border-black shadow-md ring-2 ring-black/20'
-                            : 'bg-white border-slate-200 hover:border-slate-400 shadow-xs hover:shadow-md'
-                        }`}
-                      >
-                        {/* Left Thumbnail (Compact Aspect) */}
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 relative">
+              {/* Spacious Full-Width Vertical Stacked Appliance Cards */}
+              <div className="space-y-3 sm:space-y-4">
+                {APPLIANCE_OPTIONS.map((appliance) => {
+                  const isSelected = selectedAppliances.includes(appliance.id);
+                  const isMicrowave = appliance.id === 'microwave';
+
+                  return (
+                    <div
+                      key={appliance.id}
+                      onClick={() => handleAddClick(appliance.id)}
+                      className={`group relative rounded-2xl p-4 sm:p-5 border-2 transition-all cursor-pointer select-none flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
+                        isSelected
+                          ? 'bg-slate-50 border-black shadow-md ring-1 ring-black/15'
+                          : 'bg-white border-slate-200 hover:border-slate-400 shadow-xs hover:shadow-md'
+                      }`}
+                    >
+                      {/* Left: Prominent Product Image + Full Details */}
+                      <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 flex-1 min-w-0">
+                        {/* Large Image Container */}
+                        <div className="w-22 h-22 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 relative">
                           <img
                             src={appliance.imageUrl}
                             alt={appliance.name}
@@ -453,7 +456,7 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
 
                           {appliance.badge && (
                             <span
-                              className={`absolute bottom-1 left-1 px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-black uppercase tracking-wider shadow-sm ${
+                              className={`absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-black uppercase tracking-wider shadow-xs ${
                                 isMicrowave
                                   ? 'bg-black text-white'
                                   : 'bg-slate-900/90 text-white'
@@ -464,88 +467,90 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                           )}
                         </div>
 
-                        {/* Center Description & Info */}
-                        <div className="flex-1 min-w-0 pr-1">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <h4 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-black transition-colors">
-                              {appliance.name}
-                            </h4>
-                          </div>
-                          <p className="text-[11px] sm:text-xs text-slate-500 font-medium line-clamp-2 leading-relaxed mt-0.5">
+                        {/* Title, Description & Pricing */}
+                        <div className="flex-1 min-w-0 space-y-1">
+                          <h4 className="text-sm sm:text-base md:text-lg font-black text-slate-900 group-hover:text-black transition-colors leading-snug">
+                            {appliance.name}
+                          </h4>
+                          <p className="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed line-clamp-2 sm:line-clamp-none">
                             {appliance.description}
                           </p>
-                          <div className="mt-1 flex items-center gap-2">
+                          <div className="pt-0.5 flex items-center gap-2">
                             <span className="text-sm sm:text-base font-black text-black">
                               +₹{appliance.price.toLocaleString('en-IN')}
                             </span>
                             <span className="text-[10px] text-slate-400 font-semibold uppercase">
-                              Extra add-on
+                              Extra Add-on
                             </span>
                           </div>
                         </div>
-
-                        {/* Right Prominent Action Button */}
-                        <div className="shrink-0">
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleAddClick(appliance.id);
-                            }}
-                            className={`px-5 py-2.5 rounded-[8px] text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-md ${
-                              isSelected
-                                ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/25 ring-2 ring-emerald-400/30'
-                                : 'bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-[#5337E1]/25 hover:scale-105 active:scale-95'
-                            }`}
-                          >
-                            {isSelected ? (
-                              <>
-                                <Check className="w-3.5 h-3.5 stroke-[3]" />
-                                <span>Added</span>
-                              </>
-                            ) : (
-                              <>
-                                <Plus className="w-3.5 h-3.5 stroke-[3]" />
-                                <span>+ ADD</span>
-                              </>
-                            )}
-                          </button>
-                        </div>
                       </div>
-                    );
-                  })}
-                </div>
 
-                {/* Proceed to Summary Footer Row */}
-                <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="text-xs text-slate-700 font-bold">
-                    {selectedAppliances.length > 0 ? (
-                      <span className="text-black">
-                        {selectedAppliances.length} appliance(s) selected (+₹{applianceTotal.toLocaleString('en-IN')})
-                      </span>
-                    ) : (
-                      <span>No extra appliances selected (Optional)</span>
-                    )}
-                  </div>
+                      {/* Right: Prominent Easy-to-Tap CTA Button */}
+                      <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                        <span className="sm:hidden text-sm font-black text-black">
+                          +₹{appliance.price.toLocaleString('en-IN')}
+                        </span>
 
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
-                    <button
-                      onClick={() => setStep(1)}
-                      className="w-1/2 sm:w-auto px-5 py-3 rounded-[8px] bg-white border border-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider hover:bg-slate-50 transition-all cursor-pointer"
-                    >
-                      Back
-                    </button>
-                    <button
-                      onClick={() => setStep(3)}
-                      className="w-1/2 sm:w-auto px-8 py-3.5 rounded-[8px] font-black text-xs sm:text-sm uppercase tracking-wider bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-lg shadow-[#5337E1]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
-                    >
-                      <span>Continue to Summary</span>
-                      <ArrowRight className="w-4 h-4 stroke-[3]" />
-                    </button>
-                  </div>
-                </div>
-
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleAddClick(appliance.id);
+                          }}
+                          className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs ${
+                            isSelected
+                              ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/25 ring-2 ring-emerald-400/30'
+                              : 'bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-[#5337E1]/20 hover:scale-105 active:scale-95'
+                          }`}
+                        >
+                          {isSelected ? (
+                            <>
+                              <Check className="w-4 h-4 stroke-[3]" />
+                              <span>Added</span>
+                            </>
+                          ) : (
+                            <>
+                              <Plus className="w-4 h-4 stroke-[3]" />
+                              <span>+ ADD</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
+
+              {/* Proceed to Summary Footer Row */}
+              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="text-xs sm:text-sm text-slate-700 font-bold">
+                  {selectedAppliances.length > 0 ? (
+                    <span className="text-black font-black">
+                      {selectedAppliances.length} appliance(s) selected (+₹{applianceTotal.toLocaleString('en-IN')})
+                    </span>
+                  ) : (
+                    <span className="text-slate-500 font-medium">No extra appliances selected (Optional)</span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                  <button
+                    onClick={() => setStep(1)}
+                    className="w-1/3 sm:w-auto px-4 py-2.5 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider hover:bg-slate-50 transition-all cursor-pointer"
+                  >
+                    Back
+                  </button>
+                  <button
+                    onClick={() => setStep(3)}
+                    className="flex-1 sm:flex-none px-6 py-2.5 sm:py-3 rounded-lg font-extrabold text-xs sm:text-sm uppercase tracking-wider bg-[#5337E1] hover:bg-[#462ec4] text-white shadow-md shadow-[#5337E1]/20 transition-all hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <span>View Summary</span>
+                    <ArrowRight className="w-4 h-4 stroke-[3]" />
+                  </button>
+                </div>
+              </div>
+
             </div>
           </motion.div>
         )}
@@ -760,10 +765,10 @@ export const KitchenDetailView: React.FC<KitchenDetailViewProps> = ({
                     {/* Primary Button: Complete Booking Form */}
                     <button
                       onClick={() => onNavigate('booking')}
-                      className="flex-1 py-4 px-6 rounded-[8px] bg-[#5337E1] hover:bg-[#462ec4] text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-[#5337E1]/25 hover:shadow-xl transition-all hover:scale-[1.02] active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
+                      className="flex-1 py-3.5 sm:py-4 px-6 rounded-lg bg-[#5337E1] hover:bg-[#462ec4] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md shadow-[#5337E1]/25 hover:shadow-lg transition-all hover:scale-[1.01] active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
                     >
-                      <CalendarCheck className="w-5 h-5" />
-                      <span>Complete Booking (Enter Address & Time)</span>
+                      <CalendarCheck className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Add Address & Slot</span>
                       <ArrowRight className="w-4 h-4 stroke-[3]" />
                     </button>
 
