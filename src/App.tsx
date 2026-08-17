@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { ToastMessage } from './types';
+import { ToastMessage, AppNavPage } from './types';
 import { checkPincodeAvailability } from './data/pincodes';
 import { getKitchenPackage, APPLIANCE_OPTIONS } from './data/services';
 import { ToastContainer } from './components/Toast';
@@ -19,16 +19,18 @@ import { KitchenPackageModal } from './components/KitchenPackageModal';
 import { BathroomPackageModal } from './components/BathroomPackageModal';
 import { KitchenDetailView } from './components/KitchenDetailView';
 import { BathroomDetailView } from './components/BathroomDetailView';
+import { AccountPage } from './components/AccountPage';
+import { BottomNav } from './components/BottomNav';
 
 interface AppHistoryState {
-  page: 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking';
+  page: AppNavPage;
   kitchenStep: 1 | 2 | 3;
   modal: 'kitchen' | 'bathroom' | 'pincode' | null;
 }
 
 export default function App() {
-  // Navigation View State ('home' | 'kitchenDetail' | 'bathroomDetail' | 'booking')
-  const [currentPage, setCurrentPage] = useState<'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking'>('home');
+  // Navigation View State ('home' | 'kitchenDetail' | 'bathroomDetail' | 'booking' | 'account')
+  const [currentPage, setCurrentPage] = useState<AppNavPage>('home');
   const [kitchenStep, setKitchenStep] = useState<1 | 2 | 3>(1);
 
   // Pincode Verification State (Defaults to Guindy HQ 600032)
@@ -93,7 +95,7 @@ export default function App() {
 
     setTimeout(() => {
       setToasts((prev) => prev.filter((t) => t.id !== newToast.id));
-    }, 4500);
+    }, 2000);
   };
 
   const handleDismissToast = (id: string) => {
@@ -101,7 +103,7 @@ export default function App() {
   };
 
   // View Navigation Handler with History Push
-  const handleNavigate = useCallback((view: 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking') => {
+  const handleNavigate = useCallback((view: AppNavPage) => {
     const nextStep: 1 | 2 | 3 = view === 'kitchenDetail' && currentPage !== 'kitchenDetail' ? 1 : kitchenStep;
     
     // Close any open modals
@@ -347,7 +349,7 @@ export default function App() {
         )}
 
         {currentPage === 'booking' && (
-          <div className="min-h-[80vh] pt-20 sm:pt-24 pb-12 bg-slate-50">
+          <div className="min-h-[80vh] pt-20 sm:pt-24 pb-36 sm:pb-40 bg-slate-50">
             <div className="max-w-4xl mx-auto px-4 mb-6">
               <button
                 onClick={() => handleNavigate('home')}
@@ -396,12 +398,49 @@ export default function App() {
           />
         )}
 
-        {/* Footer */}
-        <Footer
-          onScrollToSection={scrollToSection}
-          onOpenPincodeChecker={() => handleVerifyPincode(pincode || '600032')}
-        />
+        {currentPage === 'account' && (
+          <AccountPage
+            onNavigate={handleNavigate}
+            onShowToast={showToast}
+          />
+        )}
+
+        {/* Footer (hidden on Account & Booking to keep clean mobile app layout) */}
+        {currentPage !== 'account' && currentPage !== 'booking' && (
+          <Footer
+            onScrollToSection={scrollToSection}
+            onOpenPincodeChecker={() => handleVerifyPincode(pincode || '600032')}
+          />
+        )}
       </main>
+
+      {/* Urban Company Style Bottom Navigation Bar (Visible on Home & Account pages only; hidden on booking & intermediate selection screens to avoid double bar) */}
+      {(currentPage === 'home' || currentPage === 'account') && (
+        <BottomNav
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
+          onOpenHelp={() => {
+            if (currentPage === 'account') {
+              const el = document.getElementById('account-quick-help-btn');
+              if (el) el.click();
+            } else {
+              handleNavigate('account');
+              setTimeout(() => {
+                const el = document.getElementById('account-quick-help-btn');
+                if (el) el.click();
+              }, 100);
+            }
+          }}
+          onOpenServices={() => {
+            if (currentPage === 'home') {
+              scrollToSection('services');
+            } else {
+              handleNavigate('home');
+              setTimeout(() => scrollToSection('services'), 100);
+            }
+          }}
+        />
+      )}
 
       {/* Sticky Bottom Cart Bar */}
       <StickyCartBar

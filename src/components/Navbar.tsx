@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, MessageSquare, MapPin, Sparkles, Menu, X, ShieldCheck, MoreVertical, Flame, Star, ChevronRight, HelpCircle, UserCheck } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Sparkles, Menu, X, ShieldCheck, MoreVertical, Flame, Star, ChevronRight, HelpCircle, UserCheck, User } from 'lucide-react';
+import { AppNavPage } from '../types';
 
 interface NavbarProps {
   verifiedArea: string;
   pincode: string;
   onOpenPincodeChecker: () => void;
   onScrollToSection: (id: string) => void;
-  onNavigate?: (view: 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking') => void;
-  currentPage?: 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking';
+  onNavigate?: (view: AppNavPage) => void;
+  currentPage?: AppNavPage;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -213,6 +214,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-100 hover:text-black transition-colors text-left cursor-pointer"
                 >
                   <span>Home</span>
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                </button>
+
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    if (onNavigate) onNavigate('account');
+                  }}
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-950 font-black transition-colors text-left cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
+                    <User className="w-4 h-4 text-black" />
+                    <span>My Account & Profile</span>
+                  </div>
                   <ChevronRight className="w-4 h-4 text-slate-400" />
                 </button>
 

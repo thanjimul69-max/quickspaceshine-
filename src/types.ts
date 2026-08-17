@@ -47,3 +47,22 @@ export interface ToastMessage {
   type: 'info' | 'warning' | 'error' | 'success';
   message: string;
 }
+
+export type AppNavPage = 'home' | 'kitchenDetail' | 'bathroomDetail' | 'booking' | 'account';
+
+export interface UserProfile {
+  name: string;
+  phone: string;
+  email: string;
+  isProfileComplete?: boolean;
+}
+
+export interface SavedAddress {
+  id: string;
+  tag: 'Home' | 'Work' | 'Other';
+  houseNo: string;
+  streetArea: string;
+  pincode: string;
+  areaName: string;
+  isDefault?: boolean;
+}

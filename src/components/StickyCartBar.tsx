@@ -101,7 +101,7 @@ export const StickyCartBar: React.FC<StickyCartBarProps> = ({
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 80, opacity: 0, scale: 0.96 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-6 sm:w-[380px] z-50 bg-slate-900 text-white rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-slate-700/80 backdrop-blur-xl flex items-center justify-between gap-3"
+              className="fixed bottom-20 sm:bottom-6 left-3 right-3 sm:left-auto sm:right-6 sm:w-[380px] z-50 bg-slate-900 text-white rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-slate-700/80 backdrop-blur-xl flex items-center justify-between gap-3"
             >
               {/* Left Info: Cart Icon + Item & Category Count */}
               <div className="flex items-center gap-2.5 min-w-0">
